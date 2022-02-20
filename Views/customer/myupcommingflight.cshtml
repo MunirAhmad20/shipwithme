@@ -1,0 +1,211 @@
+﻿
+@{
+    ViewData["Title"] = "myupcommingflight";
+    Layout = "~/Views/Layouts/_adminLayout.cshtml";
+}
+
+
+
+<div class="page-wrapper">
+
+
+    <div class="container-fluid">
+        <br />
+        <br />
+      
+        <div class="col-md-12">
+           
+
+            <div class="card">
+                <div class="card-body">
+                    <h1>My Upcomming Flight</h1>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <br />
+                            <button type="submit" class="btn btn-primary waves-effect waves-light" style="width: 80%;">Add Flight</button>
+                        </div>
+                        <div class="col-md-3">
+                            <br />
+                            <button type="submit" class="btn btn-primary waves-effect waves-light" style="width: 80%;">Add Flight</button>
+                        </div>
+                    </div>
+                    <br />
+                    <h4 class="card-title">Search</h4>
+
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-selected="true"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Search</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Advance Search</span></a> </li>
+
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content tabcontent-border">
+                        <div class="tab-pane active" id="home" role="tabpanel">
+                            <br />
+                            <div class="row">
+
+                                <div class="col-md-3">
+
+
+                                    <div class="form-group p-0">
+                                        <label>Flight Date</label>
+                                        <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group p-0">
+                                        <label>From airport</label>
+                                        <select class="form-control mb-3" style="width: 100%; height:36px;">
+                                            <option value="Daily">Egypt</option>
+                                            <option value="Weekly">Airport1</option>
+                                            <option value="Monthly">Airport2</option>
+
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group p-0">
+                                        <label>To airport</label>
+                                        <select class="form-control mb-3" style="width: 100%; height:36px;">
+                                            <option value="Daily">Egypt</option>
+                                            <option value="Weekly">Airport1</option>
+                                            <option value="Monthly">Airport2</option>
+
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group p-0">
+                                        <label>Available Weight</label>
+                                        <input id="tch3" type="text" value="0" name="tch3" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <br />
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light" style="width: 50%;">Filter</button>
+                                </div>
+                            </div>
+                            <br />
+
+                        </div>
+                        <div class="tab-pane p-20" id="profile" role="tabpanel">Advance Search</div>
+
+                    </div>
+             
+        
+                <div class="card">
+                    <div class="card-body">
+
+
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+
+                                        <th>Flight Date</th>
+                                        <th>From Airport</th>
+                                        <th>To Airport</th>
+                                        <th>Available Weight</th>
+                                        <th>Aproval</th>
+                                        <th>Purposals</th>
+                                        th>Actions</th>
+
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+
+                                    @*@foreach (var i in ViewBag.site)
+                                {*@
+                                    <tr>
+
+                                        <td>
+
+                                            <a>1/1/2022</a>
+
+
+                                        </td>
+                                        <td>
+                                            <a>Cairo & CEO</a>
+
+                                        </td>
+                                        <td>
+                                            <a>KSA</a>
+
+                                        </td>
+                                        <td><a>10 KG</a></td>
+                                        <td><a>Yes</a></td>
+                                        <td><a>5</a></td>
+                                        <td class="text-nowrap">
+                                            <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                            <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+
+                                            <a>1/1/2022</a>
+
+
+                                        </td>
+                                        <td>
+                                            <a>Cairo & CEO</a>
+
+                                        </td>
+                                        <td>
+                                            <a>KSA</a>
+
+                                        </td>
+                                        <td><a>10 KG</a></td>
+                                        <td><a>No</a></td>
+                                        <td><a>5</a></td>
+                                        <td class="text-nowrap">
+                                            <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                            <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+
+                                            <a>1/1/2022</a>
+
+
+                                        </td>
+                                        <td>
+                                            <a>Cairo & CEO</a>
+
+                                        </td>
+                                        <td>
+                                            <a>KSA</a>
+
+                                        </td>
+                                        <td><a>10 KG</a></td>
+                                        <td><a>Pending</a></td>
+                                        <td><a>5</a></td>
+                                        <td class="text-nowrap">
+                                            <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                            <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </div>
+

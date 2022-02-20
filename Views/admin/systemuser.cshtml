@@ -1,0 +1,1589 @@
+﻿
+@{
+    ViewData["Title"] = "systemuser";
+    Layout = "~/Views/Layouts/Maeen_Layout.cshtml";
+}
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
+
+<div class="page-wrapper">
+    <style>
+        .fontsizee {
+            font-size: 28px !important;
+        }
+    </style>
+
+    <div class="container-fluid">
+        <br />
+        <br />
+        <div id="reasonlist" class="">
+            <div class="col-12">
+                <div class="card m-b-30">
+                    <div class="card-body">
+
+                        <form action="#" method="post" id="reasonForm">
+                            <div class="col-12">
+                                <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                    <div class="card-body">
+
+
+
+
+                                        <div class="form-group p-0">
+                                            <div class="form-group p-0">
+                                                <label>Reason</label>
+                                                <select name="reason" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                    @foreach (var i in ViewBag.reason)
+                                                    {
+
+
+
+
+                                                        <option value="@i.reasons">@i.reasons </option>
+
+                                                    }
+
+                                                </select>
+                                                <input name="reasonid" style="display:none;" id="reasonidtxt" />
+                                                <input name="wherefrom" style="display:none;" id="wherefromtxt" />
+                                                <input name="status" style="display:none;" id="statustxt" />
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <br />
+
+
+
+                                    <div class="form-group p-0" style="text-align: center;">
+                                        <button type="button" id="reasonnutton" onclick="addreason()" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="closepurposal" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        @* Account Type*@
+        <div id="accountType" class="">
+            <div class="col-12">
+                <div class="card m-b-30">
+                    <div class="card-body">
+
+                        <form action="#" method="post" id="accounttypeForm">
+                            <div class="col-12">
+                                <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                    <div class="card-body">
+
+
+
+
+                                        <div class="form-group p-0">
+                                            <div class="form-group p-0">
+                                                <div class="form-group p-0">
+                                                    <label>Account Type</label>
+                                                    <select name="accounttype" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                        @foreach (var i in ViewBag.accounttype)
+                                                        {
+
+
+                                                            <option value="@i.accounttitle">@i.accounttitle </option>
+
+                                                        }
+
+                                                    </select>
+                                                </div>
+                                                <input name="accountid" style="display:none;" id="accountidtxt" />
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <br />
+
+
+
+                                    <div class="form-group p-0" style="text-align: center;">
+                                        <button type="button" id="reasonnutton" onclick="addacc()" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="closepurposal" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Create new External Account</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        @*<div id="addexternaluser">*@
+                        <div class="col-12">
+
+
+                            <div class="card m-b-30">
+                                <div class="card-body">
+                                    <div _ngcontent-fed-c72="" class="ui vertical stripe segment">
+                                        <div _ngcontent-fed-c72="" class="ui grid container stackable">
+                                            <div _ngcontent-fed-c72="" class="row">
+                                                <div _ngcontent-fed-c72="" class="centered column eight wide center aligned">
+
+
+
+                                                    <br />
+                                                    @if (ViewBag.error != string.Empty)
+                                                    {
+                                                        <label class="text-danger db" id="spmsgpdd"> @ViewBag.error </label>
+                                                    }
+                                                    <form action="/admin/customerreg" class="needs-validation" method="post" enctype="multipart/form-data" novalidate>
+
+
+                                                        <div class="row">
+
+                                                            <div class="col-md-6">
+                                                                <div _ngcontent-fed-c72="" class="form-group p-0">
+                                                                    <div _ngcontent-fed-c72="" class="ui left icon input">
+
+                                                                        <p>Profile Image</p>
+                                                                        <input class="form-control" placeholder="ProfileImages" required="" type="file" name="files" src="files" id="files" />
+                                                                    </div>
+
+                                                                    <div class="valid-feedback">
+                                                                        Looks good!
+                                                                    </div>
+                                                                    <div class="invalid-feedback">
+                                                                        Profile Image is Required!
+                                                                    </div>
+                                                                </div>
+                                                                <!---->
+                                                                <div _ngcontent-fed-c72="" class="form-group p-0">
+
+
+
+                                                                    <input id="validationCustomUsername" _ type="text" name="fullName" placeholder="Full Name" required
+                                                                           class="form-control">
+
+                                                                    <div class="valid-feedback">
+                                                                        Looks Good
+                                                                    </div>
+
+                                                                    <div class="invalid-feedback">
+                                                                        User Name is Required
+                                                                    </div>
+                                                                </div>
+                                                                <div _ngcontent-fed-c72="" class="form-group p-0">
+                                                                    <label>Phone Number</label>
+                                                                    <br />
+                                                                    <input id="phone" class="form-control mb-3 phone" style="width:100%" type="tel" name="phone" />
+                                                                    <div class="valid-feedback">
+                                                                        Looks Good
+                                                                    </div>
+
+                                                                    <div class="invalid-feedback">
+                                                                        Phone Number is Required
+                                                                    </div>
+                                                                </div>
+
+                                                                <div _ngcontent-fed-c72="" class="form-group p-0">
+                                                                    <label>Country</label>
+                                                                    <select name="nationality" class="form-control mb-3" id="country" style="width: 100%; height:36px;" required>
+                                                                        <option selected disabled value="">Choose...</option>
+
+                                                                        @foreach (var item in ViewBag.country)
+                                                                        {
+                                                                            <option value="@item.Country">@item.Country</option>
+                                                                        }
+
+
+
+                                                                    </select>
+
+                                                                    <div class="valid-feedback">
+                                                                        Looks Good
+                                                                    </div>
+
+                                                                    <div class="invalid-feedback">
+                                                                        Country is Required
+                                                                    </div>
+
+                                                                </div>
+                                                                <div _ngcontent-fed-c72="" class="form-group p-0">
+                                                                    <div _ngcontent-fed-c72="" class="ui left icon input">
+                                                                        <input _ngcontent-fed-c72="" type="password" name="password"
+                                                                               placeholder="Password" required="" class="form-control">
+                                                                    </div>
+                                                                    <div class="valid-feedback">
+                                                                        Looks Good
+                                                                    </div>
+
+                                                                    <div class="invalid-feedback">
+                                                                        Password is Required
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group p-0">
+                                                                    <label>Account Type</label>
+                                                                    <select name="accounttype" class="form-control mb-3 " style="width: 100%; height:36px;" required>
+                                                                        <option selected disabled value="">Choose...</option>
+                                                                        @foreach (var i in ViewBag.accounttype)
+                                                                        {
+
+
+                                                                            <option value="@i.accounttitle">@i.accounttitle </option>
+
+                                                                        }
+
+                                                                    </select>
+                                                                    <div class="valid-feedback">
+                                                                        Looks Good
+                                                                    </div>
+
+                                                                    <div class="invalid-feedback">
+                                                                        Accouut Type is Required
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div _ngcontent-fed-c72="" class="form-group p-0">
+
+                                                                    <p>Passport Image</p>
+                                                                    <input class="form-control" required="" type="file" name="filess" src="filess" id="filess" />
+
+                                                                    <div class="valid-feedback">
+                                                                        Looks Good
+                                                                    </div>
+
+                                                                    <div class="invalid-feedback">
+                                                                        Passport Image is Required
+                                                                    </div>
+                                                                </div>
+                                                                <div _ngcontent-fed-c72="" class="form-group p-0">
+
+
+
+                                                                    <input _ngcontent-fed-c72="" type="text" name="email" placeholder="Enter Email"
+                                                                           required="" class="form-control">
+
+                                                                    <div class="valid-feedback">
+                                                                        Looks Good
+                                                                    </div>
+
+                                                                    <div class="invalid-feedback">
+                                                                        Email is Required
+                                                                    </div>
+                                                                </div>
+
+
+
+                                                                <div _ngcontent-fed-c72="" class="form-group p-0">
+
+
+                                                                    <label>Extra Phone Number(Whatsapp)</label>
+                                                                    <input id="extraphone" class="form-control extraphone" type="tel" name="extraphone" />
+                                                                    <div class="valid-feedback">
+                                                                        Looks Good
+                                                                    </div>
+
+                                                                    <div class="invalid-feedback">
+                                                                        Phone Number is Required
+                                                                    </div>
+                                                                </div>
+                                                                <div _ngcontent-fed-c72="" class="form-group p-0">
+
+                                                                    <label>City</label>
+                                                                    <select name="city" class="form-control mb-3 " id="citylist" style="width: 100%; height:36px;" required>
+                                                                    </select>
+                                                                    <div class="valid-feedback">
+                                                                        Looks Good
+                                                                    </div>
+
+                                                                    <div class="invalid-feedback">
+                                                                        City is Required
+                                                                    </div>
+                                                                </div>
+
+                                                                <div _ngcontent-fed-c72="" class="form-group p-0">
+
+                                                                    <input _ngcontent-fed-c72="" type="password"
+                                                                           name="password_confirmation" placeholder="Confirm Password" required=""
+                                                                           class="form-control">
+
+                                                                    <div class="valid-feedback">
+                                                                        Looks Good
+                                                                    </div>
+
+                                                                    <div class="invalid-feedback">
+                                                                        Password Confirmation is Required
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label>Address</label>
+                                                                    <textarea class="form-control" name="addresss" rows="2" required></textarea>
+                                                                    <div class="valid-feedback">
+                                                                        Looks Good
+                                                                    </div>
+
+                                                                    <div class="invalid-feedback">
+                                                                        Address is Required
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <br />
+                                                            <div class="col-md-12">
+                                                                <div class="form-group p-0" style="text-align: center;">
+                                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Add External User</button>
+                                                                </div>
+                                                            </div>
+
+
+
+                                                        </div>
+
+
+                                                    </form>
+                                                    <div class="modal-footer">
+                                                        <button type="button" id="closepurposal" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="passengerdetail">
+            @*<div class="row">
+                <div class="col-1">
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Chat</button>
+                </div>
+                <div class="col-3">
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Add purposal</button>
+                </div>
+
+            </div>*@
+            <br />
+            <div class="row">
+                <div class="col-md-12  one_kanban mb-2" style="
+    text-align: center;
+">
+                    <form action="/shop/checkout" method="POST" class="d-none">
+                        <input type="hidden" name="csrf_token">
+                        <input type="hidden" name="partner_id">
+                        <input type="hidden" name="callback">
+                        <input type="submit">
+                    </form>
+                    <link rel="stylesheet"
+                          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <style>
+                        .align {
+                            padding-right: 6%;
+                        }
+
+                        .checked {
+                            color: orange;
+                        }
+                    </style>
+
+                    <div class="card border border-primary">
+                        <div class="card-body" style="min-height: 130px;">
+                            <address class="mb-0" itemscope="itemscope">
+                                <div>
+                                    <span itemprop="name">
+                                        <img id="myImageID" style="width: 7%;border-radius: 50%;" src="~/projectimages/manivectoricon.jpg" />
+                                        <span id="passengername"> </span><br />
+
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                    </span>
+                                </div>
+                                <div class=" align">
+                                    <span itemprop="name">
+                                        <img style="width: 7%;border-radius: 50%;" src="~/projectimages/verifiedicon.png" />
+                                        <span id="verified"> </span>
+
+
+                                    </span>
+                                </div>
+                                <br />
+                                <div class=" align">
+                                    <span itemprop="name">
+                                        <img style="width: 3%;border-radius: 50%;" src="~/projectimages/crosscircle.png" />
+                                        Report
+                                    </span>
+                                </div>
+                                <div itemprop="address" itemscope="itemscope">
+                                    <div class="d-flex align-items-baseline">
+                                        <span class="w-100 o_force_ltr d-block" itemprop="streetAddress">
+                                            Prefered Packages types <span id="passppt"> </span><br><br>Flight Date <span id="pflightdate"></span>
+                                            <br><br>Availabe weight <span id="pavailableweight"></span>
+                                            &nbsp;<br><br>Price Per 1 KG &nbsp; &nbsp; &nbsp; <span id="pppk"></span>
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div itemprop="address" itemscope="itemscope">
+                                    <div class="d-flex align-items-baseline">
+                                        <span class="w-100 o_force_ltr d-block" itemprop="streetAddress" style="
+    padding-left: 12%;
+">
+                                            <span style="
+    padding-left: 12%;
+">TO Airport &nbsp; &nbsp; </span><span id="ptoairport"></span>
+                                            <span style="
+    padding-left: 8%;
+">Country </span><span id="ptocountry"></span>
+                                            <span style="
+    padding: 3%;
+">City </span><span id="ptocity"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <br />
+                                <div itemprop="address" itemscope="itemscope">
+                                    <div class="d-flex align-items-baseline">
+                                        <span class="w-100 o_force_ltr d-block" itemprop="streetAddress" style="
+    padding-left: 12%;
+">
+                                            <span style="
+    padding-left: 11%;
+">From Airport &nbsp; &nbsp; </span><span id="pfromairport"></span>
+                                            <span style="
+    padding-left: 7%;
+">Country &nbsp; &nbsp; </span><span id="pfromcountry"></span>
+                                            <span style="
+    padding: 3%;
+">City &nbsp; &nbsp;</span><span id="pfromcity"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <br />
+                                <span class="w-100 o_force_ltr d-block" itemprop="streetAddress" style="
+    padding-right: 10%;
+">
+                                    Is Negotionable &nbsp; &nbsp; <span id="isnego"></span>
+                                </span>
+
+
+
+
+
+
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="closepassengerdetail" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+            </div>
+
+        </div>
+
+        @*  ///////////*@
+
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">System User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-12">
+                      
+                        <form id="adminroles" class="  " >
+
+
+
+                            <div class="row">
+                               
+                                <div class="col-md-12">
+
+                                    <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                        <div class="card-body">
+
+
+                                            <div class="form-group p-0">
+                                                <label>Full Name</label>
+                                                <input id="fullname" name="name" placeholder="Full Name" class="form-control" >
+                                                <label class="text-danger db" style="display:none;" id="msgfullname"></label>
+                                            </div>
+                                            <div class="form-group p-0">
+                                                <label>G Mail</label>
+                                                <input id="gmail" name="gmail" placeholder="Gmail" class="form-control" >
+                                                <label class="text-danger db" style="display:none;" id="msggmail"></label>
+                                               
+                                            </div>
+                                            <div class="form-group p-0">
+                                                <label>Password</label>
+                                                <input id="password" type="password" name="password"  placeholder="Password" class="form-control">
+                                                <label class="text-danger db" style="display:none;" id="msgpassword"></label>
+                                            </div>
+                                            <div class="form-group p-0">
+                                                <label>Role</label>
+                                                <select id="role" name="roll" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                    <option selected disabled value="">Choose...</option>
+                                                    <option value="Admin">Administrator </option>
+                                                    <option value="Manager">Manager </option>
+
+
+                                                </select>
+                                                <label class="text-danger db" style="display:none;" id="msgrole"></label>
+                                            </div>
+
+
+
+
+
+
+
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+
+                            <br />
+
+                            <div class="form-group p-0" style="text-align: center;">
+                                <button type="button"  onclick="SendData()" class="btn btn-primary waves-effect waves-light">Add System User</button>
+                            </div>
+
+                        </form>
+
+               
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="closepurposal" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                    @*  ///////////*@
+
+                    <div class="recievedpurposal">
+                        <div class="col-md-12">
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-selected="true"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">System Users</span></a> </li>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">External Users</span></a> </li>
+
+                                    </ul>
+                                    <div class="tab-content tabcontent-border">
+                                        <div class="tab-pane active" id="home" role="tabpanel">
+                                            <br>
+
+                                            <div id="details">
+                                                <div class="col-12">
+                                                    <div class="card m-b-30">
+                                                        <div class="card-body">
+                                                            <button type="button" class="btn btn-primary waves-effect waves-light" id="btnaddflight">Add New User</button>
+                                                            <div class="table-responsive m-t-40 m-t-400">
+                                                                <table class="demo-foo-addrow2 table table-bordered table m-b-0 toggle-arrow-tiny example23" cellspacing="0" width="100%">
+                                                                    <thead>
+                                                                        <tr>
+
+
+                                                                            <th>Name</th>
+                                                                            <th>Gmail</th>
+                                                                            <th>System Roll</th>
+
+                                                                            <th>Action</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    @*<tfoot>
+                                                                        <tr>
+                                                                            <th style="width:60px;">Image</th>
+                                                                            <th>Offer Title</th>
+                                                                            <th>Description A</th>
+
+                                                                            <th>Lower Title</th>
+
+                                                                            <th>Action</th>
+                                                                        </tr>
+                                                                    </tfoot>*@
+                                                                    <tbody>
+
+                                                                        @foreach (var i in ViewBag.user)
+                                                                        {
+                                                                            <tr>
+
+                                                                                <td>
+
+                                                                                    <a>@i.Username</a>
+                                                                                </td>
+                                                                                <td>@i.Gmail </td>
+                                                                                <td>@i.systemroll </td>
+
+
+                                                                                <td>
+                                                                                    @if (i.status == "Approved")
+                                                                                    {
+
+
+                                                                                        @*<button type="button" class="btn waves-effect waves-light btn-rounded btn-danger"><a onclick="submitblacklist('@i.Id')">Block</a></button>*@
+                                                                                        <button type="button" class="btn waves-effect waves-light btn-rounded btn-danger"><a onclick="toreason('@i.Id','enternaluser','blacklisted')">Block</a></button>
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        <button type="button" class="btn waves-effect waves-light btn-rounded btn-primary"><a onclick="submitapprove('@i.Id')">Approve</a></button>
+                                                                                    }
+                                                                                </td>
+
+
+
+
+
+
+
+                                                                            </tr>
+
+                                                                        }
+
+
+
+
+
+                                                                    </tbody>
+
+                                                                </table>
+                                                            </div>
+                                                            <script type="text/javascript">
+                                                                function checkDelete(count) {
+                                                                    if (Archive('Are you sure you want to block ?')) {
+
+                                                                        submitblacklist(count);
+                                                                    }
+                                                                    else {
+                                                                        return false
+                                                                    }
+                                                                }
+                                                            </script>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                        </div>
+                                        <div class="tab-pane p-20" id="profile" role="tabpanel">
+
+
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <button type="button" class="btn btn-primary waves-effect waves-light" id="btnaddexternal">Add New User</button>
+                                                    <div class="table-responsive m-t-40">
+                                                        <table class="table table-bordered table-striped myTable">
+                                                            <thead>
+
+                                                                <tr>
+
+                                                                    <th>Full Name</th>
+
+                                                                    <th>Phone</th>
+                                                                    <th>Nationality</th>
+                                                                    <th>City</th>
+                                                                    <th>Account Type</th>
+                                                                    <th>Status</th>
+
+                                                                    <th>Actions</th>
+
+                                                                </tr>
+                                                            </thead>
+                                                            <tfoot>
+                                                                <tr>
+                                                                    <th>Full Name</th>
+
+                                                                    <th>Phone</th>
+                                                                    <th>Nationality</th>
+                                                                    <th>City</th>
+                                                                    <th>Account Type</th>
+                                                                    <th>Status</th>
+
+                                                                    <th>Actions</th>
+                                                                </tr>
+                                                            </tfoot>
+                                                            <tbody>
+
+                                                                @foreach (var i in ViewBag.externaluser)
+                                                                {
+                                                                    <tr>
+
+                                                                        <td>
+
+                                                                            <a>@i.FullName</a>
+
+
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <a>@i.PhoneNumber & @i.ExtraPhoneNumber</a>
+
+                                                                        </td>
+                                                                        <td>
+                                                                            <a>@i.Nationality</a>
+
+                                                                        </td>
+                                                                        <td><a>@i.City</a></td>
+                                                                        <td><a>@i.accounttype</a></td>
+
+
+                                                                        <td>
+
+                                                                            @if (i.status == "disapprove")
+                                                                            {
+
+                                                                                <div class="label label-table label-danger">Pending For Approval</div>
+                                                                            }
+                                                                            @if (i.status == "blacklisted")
+                                                                            {
+
+
+                                                                                <span class="label label-warning">Blacklisted</span>
+
+
+                                                                            }
+                                                                            @if (i.status == "approved")
+                                                                            {
+
+                                                                                <div class="label label-table label-success">Approved</div>
+
+
+                                                                            }
+                                                                        </td>
+
+
+
+
+
+
+
+                                                                        <td style="width:21em;">
+                                                                            @if (i.status == "disapprove" || i.status == "blacklisted")
+                                                                            {
+                                                                                <a style="font-size: 28px;" onclick="submitapproval('@i.Id')" data-toggle="tooltip" data-original-title="Approve"> <i class="fa fa-check-square-o text-success"></i> </a>
+                                                                                @*<button type="button" class="btn waves-effect waves-light btn-rounded btn-outline-success"><a onclick="submitapproval('@i.Id')">Approve</a></button>*@
+                                                                            }
+                                                                            @if (i.status != "blacklisted")
+                                                                            {
+                                                                                <a style="font-size: 28px;" onclick="toreason('@i.Id','externaluser','blacklisted')" data-toggle="tooltip" data-original-title="Blacklist"> <i class="fa fa-send text-danger"></i> </a>
+                                                                                <a style="font-size: 28px;" onclick="updateuseraccount('@i.Id')" data-toggle="tooltip" data-original-title="Update Account Type"> <i class="fa fa-edit text-purple"></i> </a>
+                                                                            }
+
+                                                                            <a>@Html.ActionLink(" ", "systemuserinfo", "admin", null, null, "", new { tid = i.Id }, new { @class = "fa fa-info-circle fontsizee", title = "info" })</a>
+                                                                        </td>
+
+                                                                    </tr>
+                                                                }
+
+
+
+                                                            </tbody>
+
+                                                        </table>
+                                                    </div>
+                                                    <script type="text/javascript">
+                                                        function checkDelete() {
+                                                            if (confirm('Are you sure you want to delete ?')) {
+
+                                                                return true
+                                                            }
+                                                            else {
+                                                                return false
+                                                            }
+                                                        }
+                                                    </script>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>
+
+                $('#passengerdetail').hide();
+                $('#purposalform').hide();
+                $('#addexternaluser').hide();
+                $('#accountType').hide();
+                $('#reasonlist').hide();
+                function Ownerdetail(count, flightid) {
+                    var id = count;
+                    var fligh = flightid;
+                    alert(fligh + id);
+                    $('.flightdetail').hide();
+                    $('#btnaddflight').hide();
+                    $('#purposalform').hide();
+                    $('#btnaddexternal').hide();
+                    $.ajax
+                        (
+                            {
+                                type: "GET",
+                                url: "/customer/getownerinfo",
+                                contentType: "Application/json;charset=utf-8",
+                                data: { departid: id, flighidd: fligh },
+                                success: function (data) {
+                                    console.log("result", data);
+                                    /*    document.getElementById("myImageID").src = "~/projectimages/manivectoricon.jpg";*/
+                                    $("#passengername").text(data.productList[0].fullName);
+                                    $("#verified").text(data.productList[0].status);
+                                    $("#passppt").text(data.flavourList[0].prefferedPackageType);
+                                    $("#pflightdate").text(data.flavourList[0].flightDate);
+                                    $("#pavailableweight").text(data.flavourList[0].availableWeight);
+                                    $("#pppk").text(data.flavourList[0].pricePerKG + " " + data.flavourList[0].currency);
+                                    $("#ptocity").text(data.flavourList[0].city);
+                                    $("#ptocountry").text(data.flavourList[0].country);
+                                    $("#ptoairport").text(data.flavourList[0].toAirport);
+                                    $("#pfromairport").text(data.flavourList[0].fromAirport);
+                                    $("#pfromcity").text(data.flavourList[0].fromCity);
+                                    $("#pfromcountry").text(data.flavourList[0].fromCountry);
+                                    $("#isnego").text(data.flavourList[0].isNegotionable);
+
+
+
+
+                                },
+
+
+                            }
+                        );
+                    $("#passengerdetail").addClass("in-down");
+
+                    $('#passengerdetail').show();
+                    $('.recievedpurposal').hide();
+
+                }
+
+                $(document).on('click', '#closepassengerdetail', function () {
+
+                    $('#passengerdetail').hide();
+
+
+                    $('#purposalform').hide();
+                    $('.recievedpurposal').show();
+
+                });
+
+            </script>
+
+
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script type="text/javascript">
+    function sumitsweett() {
+        var icon = "success";
+        if (status == "success") {
+            icon = "success";
+        }
+
+        var config = {}
+        config.icon = icon;
+        config.title = "Success";
+        config.text = "Account DeActivated SuccessFully";
+
+        Swal.fire(config);
+
+    }
+
+    function addreason() {
+
+
+
+        var formData = {};
+        var formData = $("#reasonForm").serialize();
+
+
+
+        $.ajax(
+            {
+                type: "POST",
+                url: '/admin/submitreasons',
+                        @* url: '@Url.Action("AddToCart", "Cart", new{@area= "Cart" })',*@
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+            data: formData,
+                success: function (result) {
+                    sumitsweett();
+                    setTimeout(function () {
+                        location.reload(true);
+
+                    }, 1000);
+                    console.log(result);
+                },
+        error: function () {
+            alert('Failed to receive the Data');
+            console.log('Failed ');
+        }
+    });
+
+    }
+    function toreason(count, wherefrom, status) {
+
+        $("#reasonidtxt").val(count);
+        $("#wherefromtxt").val(wherefrom);
+        $("#statustxt").val(status);
+        $("#reasonlist").show();
+        $("#reasonlist").addClass("in-down");
+
+
+    }
+    function submitapproval(count) {
+
+        var id = count;
+        $('.flightdetail').hide();
+        $('#btnaddflight').hide();
+
+        $.ajax
+            (
+                {
+                    type: "GET",
+                    url: "/admin/approveuser",
+                    contentType: "Application/json;charset=utf-8",
+                    data: { departid: id },
+                    success: function (response) {
+                        console.log("result", response);
+                        displaysweet();
+                        setTimeout(function () {
+                            location.reload(true);
+
+                        }, 1000);
+
+                        /*      setTimeout(displaysweet, 1000);*/
+
+
+
+
+
+
+                    },
+
+
+                }
+            );
+        $("#purposalform").addClass("in-down");
+        $('#purposalform').show();
+
+    }
+    function submitblacklistuser(count) {
+
+        var id = count;
+        $('.flightdetail').hide();
+        $('#btnaddflight').hide();
+
+        $.ajax
+            (
+                {
+                    type: "GET",
+                    url: "/admin/blacklistuser",
+                    contentType: "Application/json;charset=utf-8",
+                    data: { departid: id },
+                    success: function (response) {
+                        console.log("result", response);
+                        blackdisplaysweet();
+                        setTimeout(function () {
+                            location.reload(true);
+
+                        }, 1000);
+
+                        /*      setTimeout(displaysweet, 1000);*/
+
+
+
+
+
+
+                    },
+
+
+                }
+            );
+        $("#purposalform").addClass("in-down");
+        $('#purposalform').show();
+
+    }
+    function displaysweet() {
+        var icon = "success";
+        if (status == "success") {
+            icon = "success";
+        }
+
+        var config = {}
+        config.icon = icon;
+        config.title = "Success";
+        config.text = "User Approved SuccessFully";
+
+        Swal.fire(config);
+
+    }
+    function blackdisplaysweet() {
+        var icon = "success";
+        if (status == "success") {
+            icon = "success";
+        }
+
+        var config = {}
+        config.icon = icon;
+        config.title = "Success";
+        config.text = "User BlackListed SuccessFully";
+
+        Swal.fire(config);
+
+    }
+
+
+            </script>
+            <script>
+                $('#systemuser').hide();
+                $(document).ready(function () {
+
+                    $(document).on('click', '#btnaddflight', function () {
+                        $("#systemuser").addClass("in-down");
+                        $('#exampleModalLong').modal('show');
+                        //$('#addexternaluser').hide();
+                        //$('#details').hide();
+                     
+                    }
+                    );
+                    $(document).on('click', '#btnaddexternal', function () {
+                        $("#addexternaluser").addClass("in-down");
+                        $('#exampleModalCenter').modal('show');
+                        $('#systemuser').hide();
+                        //$('#details').hide();
+                        //$('#details').hide();
+
+                    }
+                    );
+                    $(document).on('click', '#closepurposal', function () {
+                        $('#addflight').hide();
+
+
+                        $('#systemuser').hide();
+                        $('#addexternaluser').hide();
+                        $('#details').show();
+                    });
+                });
+                function submitblacklist(count) {
+
+                    var id = count;
+
+
+                    $.ajax
+                        (
+                            {
+                                type: "GET",
+                                url: "/admin/blacklist",
+                                contentType: "Application/json;charset=utf-8",
+                                data: { departid: id },
+                                success: function (response) {
+                                    console.log("result", response);
+                                    blackdisplaysweet();
+                                    setTimeout(function () {
+                                        location.reload(true);
+
+                                    }, 1000);
+
+                                    /*      setTimeout(displaysweet, 1000);*/
+
+
+
+
+
+
+                                },
+
+
+                            }
+                        );
+                    $("#purposalform").addClass("in-down");
+                    $('#purposalform').show();
+
+                }
+
+                function updateuseraccount(count) {
+                    $('#passengerdetail').hide();
+                    $('#purposalform').hide();
+                    $('#addexternaluser').hide();
+                    $('#accountidtxt').val(count);
+                    $("#accountType").addClass("in-down");
+                    $('#accountType').show();
+
+                }
+                function submitapprove(count) {
+
+                    var id = count;
+
+
+                    $.ajax
+                        (
+                            {
+                                type: "GET",
+                                url: "/admin/approve",
+                                contentType: "Application/json;charset=utf-8",
+                                data: { departid: id },
+                                success: function (response) {
+                                    console.log("result", response);
+                                    approvedisplaysweet();
+                                    setTimeout(function () {
+                                        location.reload(true);
+
+                                    }, 1000);
+
+                                    /*      setTimeout(displaysweet, 1000);*/
+
+
+
+
+
+
+                                },
+
+
+                            }
+                        );
+                    $("#purposalform").addClass("in-down");
+                    $('#purposalform').show();
+
+                }
+                function sumitsweetacc() {
+                    var icon = "success";
+                    if (status == "success") {
+                        icon = "success";
+                    }
+
+                    var config = {}
+                    config.icon = icon;
+                    config.title = "Success";
+                    config.text = "External User Account Updated  SuccessFully";
+
+                    Swal.fire(config);
+
+                }
+                function blackdisplaysweet() {
+                    var icon = "success";
+                    if (status == "success") {
+                        icon = "success";
+                    }
+
+                    var config = {}
+                    config.icon = icon;
+                    config.title = "Success";
+                    config.text = "User  BlackListed SuccessFully";
+
+                    Swal.fire(config);
+
+                }
+                function approvedisplaysweet() {
+                    var icon = "success";
+                    if (status == "success") {
+                        icon = "success";
+                    }
+
+                    var config = {}
+                    config.icon = icon;
+                    config.title = "Success";
+                    config.text = "User Approved SuccessFully";
+
+                    Swal.fire(config);
+
+                }
+                function displaysweet() {
+                    var icon = "success";
+                    if (status == "success") {
+                        icon = "success";
+                    }
+
+                    var config = {}
+                    config.icon = icon;
+                    config.title = "Success";
+                    config.text = "User added SuccessFully";
+
+                    Swal.fire(config);
+
+                }
+            </script>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+
+                    $('#country').change(function () {
+
+                        var id = $(this).val();
+                        $("#citylist").empty();
+
+                        $.ajax
+                            (
+                                {
+                                    type: "GET",
+                                    url: "/Admin/getcitylist",
+                                    contentType: "Application/json;charset=utf-8",
+                                    data: { counntrytid: id },
+                                    success: function (response) {
+                                        $("#citylist").append(response);
+                                    },
+
+
+                                }
+                            );
+
+                    }
+
+
+
+
+
+                    );
+
+
+
+                }
+
+
+                );
+
+            </script>
+            <script>
+    function addacc() {
+
+
+
+        var formData = {};
+        var formData = $("#accounttypeForm").serialize();
+
+
+
+        $.ajax(
+            {
+                type: "POST",
+                url: '/admin/updateaccounttype',
+                        @* url: '@Url.Action("AddToCart", "Cart", new{@area= "Cart" })',*@
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+            data: formData,
+                success: function (result) {
+                    sumitsweetacc();
+                    setTimeout(function () {
+                        location.reload(true);
+
+                    }, 1000);
+                    console.log(result);
+                },
+        error: function () {
+            alert('Failed to receive the Data');
+            console.log('Failed ');
+        }
+    });
+
+    }
+    function SendData() {
+
+        var isValid = false;
+  
+        var fullname = $("#fullname").val();
+            var gmail = $("#gmail").val();
+            /*   var sppptt = $("#sppptt").val();*/
+        var password = $("#password").val();
+        var role = $("#role").val();
+       
+        if (fullname != null && fullname != "" && fullname != "undefined") {
+            $('#msgfullname').hide();
+
+            isValid = true;
+        }
+        else {
+            $('#msgfullname').show();
+            $('#msgfullname').text("User Name is Required");
+            $('#fullname').focus();
+            isValid = false;
+        }
+
+        if (gmail != null && gmail != "" && gmail != "undefined") {
+            $('#msggmail').hide();
+
+            isValid = true;
+        }
+        else {
+            $('#msggmail').show();
+            $('#msggmail').text("G mail is Required");
+            $('#gmail').focus();
+            isValid = false;
+        }
+        if (password != null && password != "" && password != "undefined") {
+            $('#msgpassword').hide();
+
+            isValid = true;
+        }
+        else {
+            $('#msgpassword').show();
+            $('#msgpassword').text("Password is Required");
+            $('#password').focus();
+            isValid = false;
+        }
+        if (role != null && role != "" && role != "undefined") {
+            $('#msgrole').hide();
+
+            isValid = true;
+        }
+        else {
+            $('#msgrole').show();
+            $('#msgrole').text("User Role is Required");
+            $('#role').focus();
+            isValid = false;
+        }
+            if (isValid = true &&
+                $('#msgfullname').css("display") == "none"
+                &&
+                $('#msgpassword').css("display") == "none"
+                && $('#msggmail').css("display") == "none"
+
+                && $("#msgrole").css("display") == "none"
+            ) {
+
+        var formData = {};
+        var formData = $("#adminroles").serialize();
+
+
+        $.ajax(
+            {
+                type: "POST",
+                url: '/admin/submitnewuser',
+
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+                data: formData,
+                success: function (result) {
+                    displaysweet();
+                    setTimeout(function () {
+                        location.reload(true);
+
+                    }, 1000);
+                },
+                error: function () {
+                    alert('Failed to receive the Data');
+                    console.log('Failed ');
+                }
+            });
+
+    }
+    }
+    
+    
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+        var result = true;
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault()
+                        event.stopPropagation()
+
+                    }
+                 
+
+                    form.classList.add('was-validated')
+
+          
+                 
+
+                }, false)
+
+               
+            })
+       
+       
+          
+      
+    })()
+            </script>
+
+            <!--<script>
+        function customerreg() {
+
+
+
+            var formData = {};
+            var formData = $("#customerreg").serialize();
+
+
+
+            $.ajax(
+                {
+                    type: "POST",
+                    url: '/admin/customerreg',-->
+            @* url: '@Url.Action("AddToCart", "Cart", new{@area= "Cart" })',*@
+            <!--contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+                data: formData,
+                    success: function (result) {
+                        sumitsweet();
+                        setTimeout(function () {
+                            location.reload(true);
+
+                        }, 1000);
+                        console.log(result);
+                    },
+            error: function () {
+                alert('Failed to receive the Data');
+                console.log('Failed ');
+            }
+        });
+
+        }
+        </script>-->
+            <script type="text/javascript">
+                const phoneInputField = document.querySelector(".phone");
+
+                const phoneInput = window.intlTelInput(phoneInputField, {
+                    utilsScript:
+                        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+                });
+
+            </script>
+            <script type="text/javascript">
+                const phoneInputField1 = document.querySelector(".extraphone");
+
+                const phoneInput1 = window.intlTelInput(phoneInputField1, {
+                    utilsScript:
+                        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+                });
+
+            </script>
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            @if (ViewBag.response == "save")
+            {
+
+                <script>
+                    sumitsweet();
+
+                    function sumitsweet() {
+                        var icon = "success";
+                        if (status == "success") {
+                            icon = "success";
+                        }
+
+                        var config = {}
+                        config.icon = icon;
+                        config.title = "Success";
+                        config.text = "External User Register  SuccessFully";
+
+                        Swal.fire(config);
+
+                    }
+
+                </script>
+            }
+
+            @if (ViewBag.response == "alreadyexist")
+            {
+                <script>
+                    sumitsweet();
+                    function sumitsweet() {
+                        var icon = "cancel";
+                        if (status == "cancel") {
+                            icon = "cancel";
+                        }
+
+                        var config = {}
+                        config.icon = icon;
+                        config.title = "cancel";
+                        config.text = "External User Register  SuccessFully";
+
+                        Swal.fire(config);
+
+                    }
+
+
+                </script>
+
+
+
+            }

@@ -1,0 +1,363 @@
+﻿
+@{
+    ViewData["Title"] = "Recieved Purposal";
+    Layout = "~/Views/Layouts/_adminLayout.cshtml";
+}
+
+
+
+<div class="page-wrapper">
+
+
+    <div class="container-fluid">
+        <br />
+        <br />
+        <div id="passengerdetail">
+            <div class="row">
+                <div class="col-1">
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Chat</button>
+                </div>
+                <div class="col-3">
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Add purposal</button>
+                </div>
+
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12  one_kanban mb-2" style="
+    text-align: center;
+">
+                    <form action="/shop/checkout" method="POST" class="d-none">
+                        <input type="hidden" name="csrf_token">
+                        <input type="hidden" name="partner_id">
+                        <input type="hidden" name="callback">
+                        <input type="submit">
+                    </form>
+                    <link rel="stylesheet"
+                          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <style>
+                        .align {
+                            padding-right: 6%;
+                        }
+
+                        .checked {
+                            color: orange;
+                        }
+                    </style>
+
+                    <div class="card border border-primary">
+                        <div class="card-body" style="min-height: 130px;">
+                            <address class="mb-0" itemscope="itemscope">
+                                <div>
+                                    <span itemprop="name">
+                                        <img id="myImageID" style="width: 7%;border-radius: 50%;" src="~/projectimages/manivectoricon.jpg" />
+                                        <span id="passengername"> </span><br />
+
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                    </span>
+                                </div>
+                                <div class=" align">
+                                    <span itemprop="name">
+                                        <img style="width: 7%;border-radius: 50%;" src="~/projectimages/verifiedicon.png" />
+                                        <span id="verified"> </span>
+
+
+                                    </span>
+                                </div>
+                                <br />
+                                <div class=" align">
+                                    <span itemprop="name">
+                                        <img style="width: 3%;border-radius: 50%;" src="~/projectimages/crosscircle.png" />
+                                        Report
+                                    </span>
+                                </div>
+                                <div itemprop="address" itemscope="itemscope">
+                                    <div class="d-flex align-items-baseline">
+                                        <span class="w-100 o_force_ltr d-block" itemprop="streetAddress">
+                                            Prefered Packages types <span id="passppt"> </span><br><br>Flight Date <span id="pflightdate"></span>
+                                            <br><br>Availabe weight <span id="pavailableweight"></span>
+                                            &nbsp;<br><br>Price Per 1 KG &nbsp; &nbsp; &nbsp; <span id="pppk"></span>
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div itemprop="address" itemscope="itemscope">
+                                    <div class="d-flex align-items-baseline">
+                                        <span class="w-100 o_force_ltr d-block" itemprop="streetAddress" style="
+    padding-left: 12%;
+">
+                                            <span style="
+    padding-left: 12%;
+">TO Airport &nbsp; &nbsp; </span><span id="ptoairport"></span>
+                                            <span style="
+    padding-left: 8%;
+">Country </span><span id="ptocountry"></span>
+                                            <span style="
+    padding: 3%;
+">City </span><span id="ptocity"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <br />
+                                <div itemprop="address" itemscope="itemscope">
+                                    <div class="d-flex align-items-baseline">
+                                        <span class="w-100 o_force_ltr d-block" itemprop="streetAddress" style="
+    padding-left: 12%;
+">
+                                            <span style="
+    padding-left: 11%;
+">From Airport &nbsp; &nbsp; </span><span id="pfromairport"></span>
+                                            <span style="
+    padding-left: 7%;
+">Country &nbsp; &nbsp; </span><span id="pfromcountry"></span>
+                                            <span style="
+    padding: 3%;
+">City &nbsp; &nbsp;</span><span id="pfromcity"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <br />
+                                <span class="w-100 o_force_ltr d-block" itemprop="streetAddress" style="
+    padding-right: 10%;
+">
+                                    Is Negotionable &nbsp; &nbsp; <span id="isnego"></span>
+                                </span>
+
+
+
+
+
+
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="closepassengerdetail" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+            </div>
+
+        </div>
+
+        @*  ///////////*@
+
+        <div class="recievedpurposal">
+        <div class="col-md-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-selected="true"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Search</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Advance Search</span></a> </li>
+
+                    </ul>
+                    <div class="tab-content tabcontent-border">
+                        <div class="tab-pane active" id="home" role="tabpanel">
+                            <br>
+                            <div class="row">
+
+                                <div class="col-md-3">
+
+
+                                    <div class="form-group p-0">
+                                        <label>Flight Date</label>
+                                        <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group p-0">
+                                        <label>From airport</label>
+                                        <select class="form-control mb-3" style="width: 100%; height:36px;">
+                                            <option value="Daily">Egypt</option>
+                                            <option value="Weekly">Airport1</option>
+                                            <option value="Monthly">Airport2</option>
+
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group p-0">
+                                        <label>To airport</label>
+                                        <select class="form-control mb-3" style="width: 100%; height:36px;">
+                                            <option value="Daily">Egypt</option>
+                                            <option value="Weekly">Airport1</option>
+                                            <option value="Monthly">Airport2</option>
+
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group p-0">
+                                        <label>Available Weight</label>
+                                        <input id="tch3" type="text" value="0" name="tch3" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-2">
+                                    <br>
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light" style="width: 50%;">Filter</button>
+                                </div>
+                            </div>
+                            <br>
+
+                        </div>
+                        <div class="tab-pane p-20" id="profile" role="tabpanel">Advance Search</div>
+
+                    </div>
+
+
+
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>Package Owner Name</th>
+                                            <th>Package Type</th>
+                                            <th>From Airport</th>
+                                            <th>To Airport</th>
+                                            <th>Is Accepted</th>
+
+                                            <th>Actions</th>
+
+                                        </tr>  
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Package Owner Name</th>
+                                            <th>Package Type</th>
+                                            <th>From Airport</th>
+                                            <th>To Airport</th>
+                                            <th>Is Accepted</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+
+                                        @foreach (var i in ViewBag.purposal)
+                                        {
+                                            <tr>
+
+                                                <td>
+
+                                                    <a>@i.OwnerName</a>
+
+
+                                                </td>
+                                                <td><a>@i.PackageType</a></td>
+                                                <td>
+                                                    <a>@i.FromAirport</a>
+
+                                                </td>
+                                                <td>
+                                                    <a>@i.ToAirport</a>
+
+                                                </td>
+                                                <td><a>@i.Status</a></td>
+
+                                                <td> <button type="button" class="btn btn-info btn-rounded"><i class="fa fa-heart"></i><a onclick="Ownerdetail('@i.OwnerName','@i.Id')"> Info</a></button></td>
+
+                                            </tr>
+                                        }
+
+
+
+                                    </tbody>
+
+                                </table>
+                            </div>
+                            <script type="text/javascript">
+                                function checkDelete() {
+                                    if (confirm('Are you sure you want to delete ?')) {
+
+                                        return true
+                                    }
+                                    else {
+                                        return false
+                                    }
+                                }
+                            </script>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    $('#passengerdetail').hide();
+    $('#purposalform').hide();
+    function Ownerdetail(count, flightid) {
+        var id = count;
+        var fligh = flightid;
+        alert(fligh + id);
+        $('.flightdetail').hide();
+        $('#btnaddflight').hide();
+        $('#purposalform').hide();
+        $.ajax
+            (
+                {
+                    type: "GET",
+                    url: "/customer/getownerinfo",
+                    contentType: "Application/json;charset=utf-8",
+                    data: { departid: id, flighidd: fligh },
+                    success: function (data) {
+                        console.log("result", data);
+                        /*    document.getElementById("myImageID").src = "~/projectimages/manivectoricon.jpg";*/
+                        $("#passengername").text(data.productList[0].fullName);
+                        $("#verified").text(data.productList[0].status);
+                        $("#passppt").text(data.flavourList[0].prefferedPackageType);
+                        $("#pflightdate").text(data.flavourList[0].flightDate);
+                        $("#pavailableweight").text(data.flavourList[0].availableWeight);
+                        $("#pppk").text(data.flavourList[0].pricePerKG + " " + data.flavourList[0].currency);
+                        $("#ptocity").text(data.flavourList[0].city);
+                        $("#ptocountry").text(data.flavourList[0].country);
+                        $("#ptoairport").text(data.flavourList[0].toAirport);
+                        $("#pfromairport").text(data.flavourList[0].fromAirport);
+                        $("#pfromcity").text(data.flavourList[0].fromCity);
+                        $("#pfromcountry").text(data.flavourList[0].fromCountry);
+                        $("#isnego").text(data.flavourList[0].isNegotionable);
+
+
+
+
+                    },
+
+
+                }
+            );
+        $("#passengerdetail").addClass("in-down");
+
+        $('#passengerdetail').show();
+        $('.recievedpurposal').hide();
+
+    }
+
+    $(document).on('click', '#closepassengerdetail', function () {
+       
+        $('#passengerdetail').hide();
+
+
+        $('#purposalform').hide();
+        $('.recievedpurposal').show();
+       
+    });
+
+</script>

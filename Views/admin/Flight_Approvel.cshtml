@@ -1,0 +1,554 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Layouts/Maeen_Layout.cshtml";
+}
+
+
+
+<div class="page-wrapper">
+    <div class="container-fluid">
+
+        <br />
+        <br />
+
+        <div id="passengerdetail">
+       
+            <br />
+            <div class="row">
+                <div class="col-md-12  one_kanban mb-2" style="
+    text-align: center;
+">
+                    <form action="/shop/checkout" method="POST" class="d-none">
+                        <input type="hidden" name="csrf_token">
+                        <input type="hidden" name="partner_id">
+                        <input type="hidden" name="callback">
+                        <input type="submit">
+                    </form>
+                    <link rel="stylesheet"
+                          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <style>
+                        .align {
+                            padding-right: 6%;
+                        }
+
+                        .checked {
+                            color: orange;
+                        }
+                    </style>
+
+                    <div class="card border border-primary">
+                        <div class="card-body" style="min-height: 130px;">
+                            <address class="mb-0" itemscope="itemscope">
+                                <div>
+                                    <span itemprop="name">
+                                        <img id="myImageID" style="width: 7%;border-radius: 50%;" src="~/projectimages/manivectoricon.jpg" />
+                                        <span id="passengername"> </span><br />
+
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                    </span>
+                                </div>
+                                <div class=" align">
+                                    <span itemprop="name">
+                                        <img style="width: 7%;border-radius: 50%;" src="~/projectimages/verifiedicon.png" />
+                                        <span id="verified"> </span>
+
+
+                                    </span>
+                                </div>
+                                <br />
+                                <div class=" align">
+                                    <span itemprop="name">
+                                        <img style="width: 3%;border-radius: 50%;" src="~/projectimages/crosscircle.png" />
+                                        Report
+                                    </span>
+                                </div>
+                                <div itemprop="address" itemscope="itemscope">
+                                    <div class="d-flex align-items-baseline">
+                                        <span class="w-100 o_force_ltr d-block" itemprop="streetAddress">
+                                            Prefered Packages types <span id="passppt"> </span><br><br>Flight Date <span id="pflightdate"></span>
+                                            <br><br>Availabe weight <span id="pavailableweight"></span>
+                                            &nbsp;<br><br>Price Per 1 KG &nbsp; &nbsp; &nbsp; <span id="pppk"></span>
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div itemprop="address" itemscope="itemscope">
+                                    <div class="d-flex align-items-baseline">
+                                        <span class="w-100 o_force_ltr d-block" itemprop="streetAddress" style="
+    padding-left: 12%;
+">
+                                            <span style="
+    padding-left: 12%;
+">TO Airport &nbsp; &nbsp; </span><span id="ptoairport"></span>
+                                            <span style="
+    padding-left: 8%;
+">Country </span><span id="ptocountry"></span>
+                                            <span style="
+    padding: 3%;
+">City </span><span id="ptocity"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <br />
+                                <div itemprop="address" itemscope="itemscope">
+                                    <div class="d-flex align-items-baseline">
+                                        <span class="w-100 o_force_ltr d-block" itemprop="streetAddress" style="
+    padding-left: 12%;
+">
+                                            <span style="
+    padding-left: 11%;
+">From Airport &nbsp; &nbsp; </span><span id="pfromairport"></span>
+                                            <span style="
+    padding-left: 7%;
+">Country &nbsp; &nbsp; </span><span id="pfromcountry"></span>
+                                            <span style="
+    padding: 3%;
+">City &nbsp; &nbsp;</span><span id="pfromcity"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <br />
+                                <span class="w-100 o_force_ltr d-block" itemprop="streetAddress" style="
+    padding-right: 10%;
+">
+                                    Is Negotionable &nbsp; &nbsp; <span id="isnego"></span>
+                                </span>
+
+
+
+
+
+
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="closepassengerdetail" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+            </div>
+
+        </div>
+
+
+
+        <div id="reasonlist" class="">
+            <div class="col-12">
+                <div class="card m-b-30">
+                    <div class="card-body">
+
+                        <form action="#" method="post" id="reasonForm">
+                            <div class="col-12">
+                                <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                    <div class="card-body">
+
+
+
+
+                                        <div class="form-group p-0">
+                                            <div class="form-group p-0">
+                                                <label>Reason</label>
+                                                <select name="reason" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                    @foreach (var i in ViewBag.reason)
+                                                    {
+
+
+
+
+                                                        <option value="@i.reasons">@i.reasons </option>
+
+                                                    }
+
+                                                </select>
+                                                <input name="reasonid" style="display:none;" id="reasonidtxt" />
+                                                <input name="wherefrom" style="display:none;" id="wherefromtxt" />
+                                                <input name="status" style="display:none;" id="statustxt" />
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <br />
+
+
+
+                                    <div class="form-group p-0" style="text-align: center;">
+                                        <button type="button" id="reasonnutton" onclick="addreason()" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="closepurposal" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Flight Approval</h4>
+                        <h6 class="card-subtitle">Requests</h6>
+                        <div class="table-responsive m-t-40">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+
+
+                                        <th>Flight Date</th>
+                                        <th>From Airport</th>
+                                        <th>To Airport</th>
+                                        <th>Available Weight</th>
+                                        <th>Passenger Name</th>
+
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Flight Date</th>
+                                        <th>From Airport</th>
+                                        <th>To Airport</th>
+                                        <th>Available Weight</th>
+                                        <th>Passenger Name</th>
+
+                                        <th>Actions</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody id="searchvalue">
+
+
+
+                                    @foreach (var item in ViewBag.details)
+                                    {
+
+
+                                        <tr>
+
+                                            <td>
+
+                                                <a>@item.FlightDate</a>
+
+
+                                            </td>
+                                            <td>
+                                                <a>@item.FromAirport</a>
+
+                                            </td>
+                                            <td>
+                                                <a>@item.ToAirport</a>
+
+                                            </td>
+                                            <td><a>@item.AvailableWeight</a></td>
+                                            <td><a>@item.PassengerName</a></td>
+
+                                            @*<td><a> @Html.ActionLink(null, null, null, null, null, "", new { tid = item.Id }, new { @class = " fa fa-pencil text-inverse m-r-10", title = "Details" })</a><a> @Html.ActionLink(" ", "edit_offerwallpriority", "admin", null, null, "", new { tid = item.Id }, new { @class = "ti-stats-up", title = "Priority" })</a> <a onclick="return checkDelete()"> @Html.ActionLink(" ", "Deleteoffer", "admin", null, null, "", new { tid = item.Offer_Name }, new { @class = "fa fa-close text-danger", onclick = "return checkDelete()", title = "Archive" })</a></td>*@
+
+
+                                            <td style="width:21em;">
+                                                @if (item.FlightStatus == "blacklisted")
+                                                {
+                                                    <button type="button" class="btn waves-effect waves-light btn-rounded btn-outline-success"><a onclick="submitapproval('@item.Id')">Activate</a></button>
+                                                }
+                                                @if (item.FlightStatus == "approved" || item.FlightStatus != "blacklisted")
+                                                {
+                                                    @*<button type="button" class="btn waves-effect waves-light btn-rounded btn-danger"><a onclick="submitblacklist('@item.Id')">Deactivate</a></button>*@
+                                                    <button type="button" class="btn waves-effect waves-light btn-rounded btn-danger"><a onclick="toreason('@item.Id','flight','blacklisted')">Deactivate</a></button>
+                                                }
+
+
+                                                <button type="button" class="btn btn-info btn-rounded"><i class="fa fa-heart"></i><a onclick="passengerdetail('@item.PassengerName','@item.Id')"> Info</a></button>
+
+                                                @*<a> @Html.ActionLink("Add Purposal", "addpurposal", "customer", null, null, "", new { tid = item.Id }, null)</a> |
+                                                <a> @Html.ActionLink("Details", "Details", "customer", null, null, "", new { tid = item.Id }, null)</a>*@
+
+
+                                            </td>
+
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        @*<div id="myModal" name="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mt-0" id="myModalLabel">Add Comission</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>*@
+
+        <!-- /.modal -->
+
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    $("#reasonlist").hide();
+
+    $('#passengerdetail').hide();
+    function submitapproval(count) {
+
+        var id = count;
+        $('.flightdetail').hide();
+        $('#btnaddflight').hide();
+
+        $.ajax
+            (
+                {
+                    type: "GET",
+                    url: "/admin/approveflight",
+                    contentType: "Application/json;charset=utf-8",
+                    data: { departid: id },
+                    success: function (response) {
+                        console.log("result", response);
+                        displaysweet();
+                        setTimeout(function () {
+                            location.reload(true);
+
+                        }, 1000);
+
+                  /*      setTimeout(displaysweet, 1000);*/
+
+
+
+
+
+
+                    },
+
+
+                }
+            );
+        $("#purposalform").addClass("in-down");
+        $('#purposalform').show();
+
+    }
+    function addreason() {
+
+
+
+        var formData = {};
+        var formData = $("#reasonForm").serialize();
+
+
+
+        $.ajax(
+            {
+                type: "POST",
+                url: '/admin/blacklistflights',
+                        @* url: '@Url.Action("AddToCart", "Cart", new{@area= "Cart" })',*@
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+            data: formData,
+                success: function (result) {
+                    blackdisplaysweet();
+                    setTimeout(function () {
+                        location.reload(true);
+
+                    }, 1000);
+                    console.log(result);
+                },
+        error: function () {
+            alert('Failed to receive the Data');
+            console.log('Failed ');
+        }
+    });
+
+    }
+    function toreason(count, wherefrom, status) {
+
+        $("#reasonidtxt").val(count);
+        $("#wherefromtxt").val(wherefrom);
+        $("#statustxt").val(status);
+        $("#reasonlist").show();
+        $("#reasonlist").addClass("in-down");
+
+
+    }
+    function submitblacklist(count) {
+
+        var id = count;
+        $('.flightdetail').hide();
+        $('#btnaddflight').hide();
+
+        $.ajax
+            (
+                {
+                    type: "GET",
+                    url: "/admin/blacklistflight",
+                    contentType: "Application/json;charset=utf-8",
+                    data: { departid: id },
+                    success: function (response) {
+                        console.log("result", response);
+                        blackdisplaysweet();
+                        setTimeout(function () {
+                            location.reload(true);
+
+                        }, 1000);
+
+                        /*      setTimeout(displaysweet, 1000);*/
+
+
+
+
+
+
+                    },
+
+
+                }
+            );
+        $("#purposalform").addClass("in-down");
+        $('#purposalform').show();
+
+    }
+    function displaysweet()
+        {
+            var icon = "success";
+            if (status == "success") {
+                icon = "success";
+            }
+
+            var config = {}
+            config.icon = icon;
+            config.title = "Success";
+            config.text = "Flight Activated SuccessFully";
+
+            Swal.fire(config);
+
+    }
+    function blackdisplaysweet() {
+        var icon = "success";
+        if (status == "success") {
+            icon = "success";
+        }
+
+        var config = {}
+        config.icon = icon;
+        config.title = "Success";
+        config.text = "Flight DeActivated SuccessFully";
+
+        Swal.fire(config);
+
+    }
+
+</script>
+
+<script>
+    $('#purposalform').hide();
+    function passengerdetail(count, flightid) {
+        var id = count;
+        var fligh = flightid;
+
+        $('.flightdetail').hide();
+        $('#btnaddflight').hide();
+        $('#purposalform').hide();
+        $.ajax
+            (
+                {
+                    type: "GET",
+                    url: "/customer/getpassengerinfo",
+                    contentType: "Application/json;charset=utf-8",
+                    data: { departid: id, flighidd: fligh },
+                    success: function (data) {
+                        console.log("result", data);
+                        /*    document.getElementById("myImageID").src = "~/projectimages/manivectoricon.jpg";*/
+                        $("#passengername").text(data.productList[0].fullName);
+                        $("#verified").text(data.productList[0].status);
+                        $("#passppt").text(data.flavourList[0].prefferedPackageType);
+                        $("#pflightdate").text(data.flavourList[0].flightDate);
+                        $("#pavailableweight").text(data.flavourList[0].availableWeight);
+                        $("#pppk").text(data.flavourList[0].pricePerKG + " " + data.flavourList[0].currency);
+                        $("#ptocity").text(data.flavourList[0].city);
+                        $("#ptocountry").text(data.flavourList[0].country);
+                        $("#ptoairport").text(data.flavourList[0].toAirport);
+                        $("#pfromairport").text(data.flavourList[0].fromAirport);
+                        $("#pfromcity").text(data.flavourList[0].fromCity);
+                        $("#pfromcountry").text(data.flavourList[0].fromCountry);
+                        $("#isnego").text(data.flavourList[0].isNegotionable);
+
+
+
+
+                    },
+
+
+                }
+            );
+        $("#passengerdetail").addClass("in-down");
+
+        $('#passengerdetail').show();
+
+    }
+
+    $(document).on('click', '#closepassengerdetail', function () {
+        $('#addflight').hide();
+        $('#passengerdetail').hide();
+
+
+        $('#purposalform').hide();
+        $('.flightdetail').show();
+        $('#btnaddflight').show();
+    });
+
+</script>
+@*<script type="text/javascript">
+            $(document).on('click', '#btnadd', function () {
+                //var txtid = $('#txtid');
+                //var client = $('#client');
+
+                //var jamount = $('#jamount');
+
+                //var namount = $('#namount');
+                //var ramount = $('#ramount');
+                //var product = $('#product');
+
+                //txtid.val(null);
+                //client.val(null);
+
+                //product.val(null);
+                //jamount.val(null);
+                //namount.val(null);
+                //ramount.val(null);
+
+                $('#myModal').modal('show');
+            }
+            );
+    </script>*@
+
+

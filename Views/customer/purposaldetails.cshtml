@@ -1,0 +1,1031 @@
+﻿
+@{
+    ViewData["Title"] = "myupcommingflight";
+    Layout = "~/Views/Layouts/_adminLayout.cshtml";
+}
+<style>
+
+@@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+}
+@@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+.fadeOutUp {
+  animation-name: fadeOutUp;
+}
+
+
+@@keyframes fadeInDownBig {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -2000px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/*    @@-webkit-keyframes fadeInDown {
+    from {
+        opacity:0;
+        -webkit-transform: translatey(-20px);
+        -moz-transform: translatey(-20px);
+        -o-transform: translatey(-20px);
+        transform: translatey(-20px);
+    }
+    to {
+        opacity:1;
+        -webkit-transform: translatey(0);
+        -moz-transform: translatey(0);
+        -o-transform: translatey(0);
+        transform: translatey(0);
+    }
+}
+@@-moz-keyframes fadeInDown {
+    from {
+        opacity:0;
+        -webkit-transform: translatey(-20px);
+        -moz-transform: translatey(-20px);
+        -o-transform: translatey(-20px);
+        transform: translatey(-20px);
+    }
+    to {
+        opacity:1;
+        -webkit-transform: translatey(0);
+        -moz-transform: translatey(0);
+        -o-transform: translatey(0);
+        transform: translatey(0);
+    }
+}
+@@keyframes fadeInDown {
+    from {
+        opacity:0;
+        -webkit-transform: translatey(-20px);
+        -moz-transform: translatey(-20px);
+        -o-transform: translatey(-20px);
+        transform: translatey(-20px);
+    }
+    to {
+        opacity:1;
+        -webkit-transform: translatey(0);
+        -moz-transform: translatey(0);
+        -o-transform: translatey(0);
+        transform: translatey(0);
+    }
+}*/
+
+    @@keyframes rotateOutUpLeft {
+        from {
+            transform-origin: left bottom;
+            opacity: 1;
+        }
+
+        to {
+            transform-origin: left bottom;
+            transform: rotate3d(0, 0, 1, -45deg);
+            opacity: 0;
+        }
+    }
+
+    .rotateOutUpLeft {
+        animation-name: rotateOutUpLeft;
+    }
+.in-down {
+    -webkit-animation-name: fadeInDown;
+    -moz-animation-name: fadeInDown;
+    -o-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 3s;
+    -moz-animation-duration: 3s;
+    -o-animation-duration: 3s;
+    animation-duration: 3s;
+}
+    .fadeOutUp {
+        -webkit-animation-name: rotateOutUpLeft;
+        -moz-animation-name: rotateOutUpLeft;
+        -o-animation-name: rotateOutUpLeft;
+        animation-name: rotateOutUpLeft;
+        -webkit-animation-fill-mode: both;
+        -moz-animation-fill-mode: both;
+        -o-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-duration: 3s;
+        -moz-animation-duration: 3s;
+        -o-animation-duration: 3s;
+        animation-duration: 3s;
+    }
+
+
+.fade-css-example {
+ margin-top: 25px;
+    font-size: 21px;
+    text-align: center;
+
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+}
+
+@@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+</style>
+
+
+
+<div class="page-wrapper">
+
+
+    <div class="container-fluid">
+        <br />
+        <br />
+        <div class="row">
+
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="addpurposal" class="">
+
+
+                            <h4 class="mt-0 header-title" style=" text-align: center; color: black; font-size: 30px;">Add Purposal </h4>
+                            <br />
+                            <br />
+
+                            <form action="/customer/submitpurposal" enctype="multipart/form-data" method="post">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+
+                                        <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                            <div class="card-body">
+
+
+                                                <div class="form-group p-0">
+                                                    <label>Flight Date</label>
+                                                    <input name="date" class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                                </div>
+                                                <div class="form-group p-0">
+                                                    <label>From airport</label>
+                                                    <select name="fromairport" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                        <option value="Egypt">Egypt</option>
+                                                        <option value="Airport1">Airport1</option>
+                                                        <option value="Airport2">Airport2</option>
+
+                                                    </select>
+
+                                                </div>
+                                                <div class="form-group p-0">
+                                                    <label>Country</label>
+                                                    <select name="fromcountry" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                        <option value="Egypt">Egypt</option>
+                                                        <option value="Pakistan">pakistan</option>
+                                                        <option value="USA">USA</option>
+
+                                                    </select>
+
+                                                </div>
+
+
+
+                                                <div class="form-group p-0">
+                                                    <label>City</label>
+                                                    <select name="fromcity" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                        <option value="Lahore">Lahore</option>
+                                                        <option value="Islamabad">Islamabad</option>
+                                                        <option value="Bahawalpur">Bahawalpur</option>
+
+                                                    </select>
+
+
+                                                </div>
+
+                                                <div class="form-group p-0">
+                                                    <label>Preferred Delivery Destination</label>
+                                                    <input name="pdd" id="pdd" placeholder="Delivery Destination" class="form-control">
+                                                    <label class="text-danger db" style="display:none;" id="msgpdd"></label>
+                                                </div>
+                                                <div class="form-group p-0">
+                                                    <label>Available Weight</label>
+                                                    <input id="tch3_22" type="text" value="0" name="tch3_22" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                    <label class="text-danger db" style="display:none;" id="msgtch3_22"></label>
+                                                </div>
+                                                <div class="form-group p-0">
+                                                    <label>Required Weight</label>
+                                                    <input id="tchm" type="text" value="0" name="tchm" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                    <label class="text-danger db" style="display:none;" id="msgtchm"></label>
+                                                </div>
+
+
+                                                <div class="form-group p-0">
+                                                    <label>Price Per 1 KG</label>
+                                                    <input name="priceperkg" id="priceperkg" placeholder="currency" class="form-control">
+                                                    <label class="text-danger db" style="display:none;" id="msgpriceperkg"></label>
+                                                </div>
+
+
+                                                <div class="controls" style="padding-top: 14%;">
+                                                    <label class="custom-control custom-checkbox">
+                                                        <input type="checkbox" value="yes" name="isnegotionable" class="custom-control-input"><span class="custom-control-label">Is Negotionable</span>
+                                                    </label>
+                                                    <div class="help-block"></div>
+                                                </div>
+                                                <br />
+                                                <br />
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-6">
+
+                                        <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+
+                                            <div class="card-body">
+
+
+
+
+                                                <div class="form-group p-0">
+                                                    <label>To airport</label>
+                                                    <select name="toairport" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                        <option value="Egypt">Egypt</option>
+                                                        <option value="Airport1">Airport1</option>
+                                                        <option value="Airport2">Airport2</option>
+
+                                                    </select>
+                                                </div>
+
+
+
+                                                <div class="form-group p-0">
+                                                    <label>Country</label>
+                                                    <select name="tocountry" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                        <option value="Egypt">Egypt</option>
+                                                        <option value="Pakistan">pakistan</option>
+                                                        <option value="USA">USA</option>
+
+                                                    </select>
+
+                                                </div>
+
+
+
+                                                <div class="form-group p-0">
+                                                    <label>City</label>
+                                                    <select name="tocity" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                        <option value="Lahore">Lahore</option>
+                                                        <option value="Islamabad">Islamabad</option>
+                                                        <option value="Bahawalpur">Bahawalpur</option>
+
+                                                    </select>
+
+                                                </div>
+
+
+                                                <div class="form-group p-0">
+                                                    <label>Preferred Pickup Destination</label>
+                                                    <input name="ppdestination" id="ppdestination" placeholder="Pickup Destination" class="form-control">
+                                                    <label class="text-danger db" style="display:none;" id="msgppdestination"></label>
+                                                </div>
+
+
+
+
+
+                                                <div class="form-group p-0">
+                                                    <label>packages types</label>
+                                                    <select name="packagetype" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                        <option value="Package 1">Package 1</option>
+                                                        <option value="Package 2">Package 2</option>
+                                                        <option value="Package 3">Package 3</option>
+
+                                                    </select>
+
+
+                                                </div>
+
+
+
+
+                                                <div class="form-group p-0">
+                                                    <label>packages sub types</label>
+                                                    <select name="packagesubtype" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                        <option value="Package subtype 1 ">Package subtype 1</option>
+                                                        <option value="Package subtype 2">Package subtype 2</option>
+                                                        <option value="Package subtype 3">Package subtype 3</option>
+
+                                                    </select>
+
+
+                                                </div>
+
+
+                                                <div class="form-group p-0">
+                                                    <label>Add More Packages Types</label>
+                                                    <input name="morepackage" id="morepackage" placeholder="Add More Packages Type" class="form-control">
+                                                    <label class="text-danger db" style="display:none;" id="msgmorepackage"></label>
+                                                </div>
+
+
+
+
+
+                                                <div class="form-group p-0">
+                                                    <label>Prefered packages types</label>
+                                                    <select name="prefferdpackagetypes" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                        <option value="Package 1">Package 1</option>
+                                                        <option value="Package 2">Package 2</option>
+                                                        <option value="Package 3">Package 3</option>
+
+                                                    </select>
+
+
+                                                </div>
+                                                <div class="form-group p-0">
+                                                    <label>Prefferd delivery time after arival</label>
+                                                    <input id="tch2" type="text" value="0" name="tch2" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                    <label class="text-danger db" style="display:none;" id="msgtch2"></label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*<div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Image Upload Maximu 5 images</h4>
+
+                                <form class="dropzone">
+                                    <div class="fallback">
+                                        <input name="file" type="file" multiple />
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>*@
+
+
+                                <br />
+
+                                <div class="form-group p-0" style="text-align: center;">
+                                    <button type="button" id="validationchk" class="btn btn-primary waves-effect waves-light">Add flight</button>
+                                </div>
+
+                            </form>
+                            <div class="modal-footer">
+                                <button type="button" id="close" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+                            </div>
+
+
+                        </div><div class="purposaldetail">
+                            <h4 style="text-align:center;" class="card-title">Purpoasal Details</h4>
+                            <div class="row">
+
+
+                                <div class="col-md-3">
+                                    <br />
+                                    <button type="button" class="btn btn-primary waves-effect waves-light" id="btnaddpurposal" style="width: 80%;">Add Purposal</button>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+
+
+                        <div class="purposaldetail">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-selected="true"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Search</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Advance Search</span></a> </li>
+
+                            </ul>
+                            <div class="tab-content tabcontent-border">
+                                <div class="tab-pane active" id="home" role="tabpanel">
+                                    <br>
+                                    <div class="row">
+
+                                        <div class="col-md-3">
+
+
+                                            <div class="form-group p-0">
+                                                <label>Flight Date</label>
+                                                <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group p-0">
+                                                <label>From airport</label>
+                                                <select class="form-control mb-3" style="width: 100%; height:36px;">
+                                                    <option value="Egypt">Egypt</option>
+                                                    <option value="Airport1">Airport1</option>
+                                                    <option value="Airport2">Airport2</option>
+
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group p-0">
+                                                <label>To airport</label>
+                                                <select class="form-control mb-3" style="width: 100%; height:36px;">
+                                                    <option value="Egypt">Egypt</option>
+                                                    <option value="Airport1">Airport1</option>
+                                                    <option value="Airport2">Airport2</option>
+
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group p-0">
+                                                <label>Available Weight</label>
+                                                <input id="tch3" type="text" value="0" name="tch3" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <br>
+                                            <button type="submit" class="btn btn-primary waves-effect waves-light" style="width: 50%;">Filter</button>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                </div>
+                                <div class="tab-pane p-20" id="profile" role="tabpanel">Advance Search</div>
+
+                            </div>
+
+
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+
+                                                <tr>
+                                                    <th>Flight Date</th>
+                                                    <th>From Airport</th>
+                                                    <th>To Airport</th>
+                                                    <th>Is Negotionable</th>
+                                                    <th>Price Per 1KG</th>
+                                                    <th>Available Weight</th>
+
+
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+
+                                                    <th>Flight Date</th>
+                                                    <th>From Airport</th>
+                                                    <th>To Airport</th>
+                                                    <th>Is Negotionable</th>
+                                                    <th>Price Per 1KG</th>
+                                                    <th>Available Weight</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+
+                                               @foreach (var i in ViewBag.purposal)
+                                               {
+                                                <tr>
+
+                                                    <td>
+
+                                                        <a>@i.FlightDate</a>
+
+
+                                                    </td>
+                                                    <td>
+                                                        <a>@i.FromAirport</a>
+
+                                                    </td>
+                                                    <td>
+                                                        <a>@i.ToAirport</a>
+
+                                                    </td>
+                                                    <td><a>@i.IsNegotionable</a></td>
+                                                    <td><a>@i.PricePerKG</a></td>
+                                                    <td><a>@i.AvailableWeight KG</a></td>
+
+                                                </tr>
+
+                                               }
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                    <script type="text/javascript">
+                                        function checkDelete() {
+                                            if (confirm('Are you sure you want to delete ?')) {
+
+                                                return true
+                                            }
+                                            else {
+                                                return false
+                                            }
+                                        }
+                                    </script>
+                              
+                                </div>
+                                
+                            </div>
+
+                      
+                        <div class="row">
+                            <div class="col-3">
+                                <img style=" width: 56%;" src="~/maeen_asset/assets/images/users/2.jpg" alt="Images" />
+
+
+
+                            </div>
+                            <div class="col-3">
+                                <img style=" width: 56%;" src="~/maeen_asset/assets/images/users/3.jpg" alt="Images" />
+
+
+
+                            </div>
+                            <div class="col-3">
+                                <img style=" width: 56%;" src="~/maeen_asset/assets/images/users/1.jpg" alt="Images" />
+
+
+
+                            </div>
+                        </div>
+
+                        <br />
+                        <br />
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="form-group p-0">
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Chat</button>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="form-group p-0">
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Approve</button>
+                                </div>
+                            </div>
+                        </div>
+                        <style>
+
+                            .checked {
+                                color: orange;
+                            }
+                        </style>
+                        <!--<div class="row">
+            <div class="col-12">
+                <table id="example23" class="table table-striped" cellspacing="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <td style=" width: 14%;"><img src="#" alt="Alternate Text" /></td>
+                            <td>
+                                <h4>Packag Owner Name</h4>
+
+
+                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+
+
+                            </td>
+                            <td>
+                                <h6>How Many Packages sent before:10</h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-12">
+                                <h5>Verified</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-12">
+                                <h5>Report</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-12">
+                                <h5>Package Type(Catagory)</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-12">
+                                <h5>Total Weight</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-12">
+                                <h5>Preferrd Price</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-12">
+                                <h5>Preferrd Delivery Drestination</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-12">
+                                <h5>Preferrd Pickup Drestination</h5>
+                            </td>
+                        </tr>
+                    </tbody>
+
+
+                    </table>-->
+                        @*<span>
+                    <img src="#" alt="Alternate Text" />
+                    <h2> Packag Owner Name</h2>
+                    <br />
+
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+
+                </span>*@
+                        <!--</div>
+
+
+            </div>-->
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+<div class="page-wrapper purposaldetail">
+    <br />
+    <br />
+    <h1 style="text-align:center;">Purposal Details</h1>
+    <br />
+    <br />
+    <div class="container-fluid">
+
+
+        <div class="row">
+            <div class="col-md-12  one_kanban mb-2" style="
+    text-align: center;
+">
+                <form action="/shop/checkout" method="POST" class="d-none">
+                    <input type="hidden" name="csrf_token">
+                    <input type="hidden" name="partner_id">
+                    <input type="hidden" name="callback">
+                    <input type="submit">
+                </form>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <style>
+                    .align {
+                        padding-right: 6%;
+                    }
+
+                    .checked {
+                        color: orange;
+                    }
+                </style>
+
+                <div class="card border border-primary">
+                    <div class="card-body" style="min-height: 130px;">
+                        <address class="mb-0" itemscope="itemscope">
+                            <div>
+                                <span itemprop="name">
+                                    <img style="width: 7%;border-radius: 50%;" src="~/projectimages/manivectoricon.jpg" /> Package Owner Name
+                                    <span style="float:right;">How Many Packages Sent Before:10</span>
+                                    <br />
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                </span>
+
+                            </div>
+                            <div class=" align">
+                                <span itemprop="name">
+                                    <img style="width: 7%;border-radius: 50%;" src="~/projectimages/verifiedicon.png" /> Verified
+
+
+                                </span>
+                            </div>
+                            <br />
+                            <div class=" align">
+                                <span itemprop="name">
+                                    <img style="width: 3%;border-radius: 50%;" src="~/projectimages/crosscircle.png" /> Report
+                                </span>
+                            </div>
+                            <div itemprop="address" itemscope="itemscope">
+                                <div class="d-flex align-items-baseline">
+                                    <span class="w-100 o_force_ltr d-block" itemprop="streetAddress">
+                                        Prefered Packages types<br><br>Flight Date &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        <br><br>Availabe weight &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br><br>Price Per 1 KG  &nbsp; &nbsp; &nbsp;  Currency
+
+                                    </span>
+                                </div>
+                            </div>
+                            <br />
+
+                            <div itemprop="address" itemscope="itemscope">
+                                <div class="d-flex align-items-baseline">
+                                    <span class="w-100 o_force_ltr d-block" itemprop="streetAddress" style="
+    padding-left: 12%;
+">
+                                        <span style="
+    padding-left: 12%;
+">TO Airport</span>
+                                        <span style="
+    padding-left: 8%;
+">Country &nbsp; &nbsp; egypt</span>
+                                        <span style="
+    padding: 3%;
+">City &nbsp; &nbsp; Tanta</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <br />
+                            <div itemprop="address" itemscope="itemscope">
+                                <div class="d-flex align-items-baseline">
+                                    <span class="w-100 o_force_ltr d-block" itemprop="streetAddress" style="
+    padding-left: 12%;
+">
+                                        <span style="
+    padding-left: 11%;
+">From Airport</span>
+                                        <span style="
+    padding-left: 7%;
+">Country &nbsp; &nbsp; egypt</span>
+                                        <span style="
+    padding: 3%;
+">City &nbsp; &nbsp; Tanta</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <br />
+                            <span class="w-100 o_force_ltr d-block" itemprop="streetAddress" style="
+    padding-right: 10%;
+">
+                                Is Negotionable
+                            </span>
+
+
+
+
+
+
+                        </address>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+   
+</div>
+                
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script type="text/javascript">
+                    $('#addpurposal').hide();
+                    $('.purposaldetail').show();
+                    $(document).ready(function () {
+
+                        $(document).on('click', '#btnaddpurposal', function () {
+                            $("#addpurposal").removeClass("fadeOutUp");
+                            $("#addpurposal").addClass("in-down");
+                            $('#addpurposal').show();
+                            $('.purposaldetail').hide();
+                            $('#btnaddpurposal').hide();
+                        }
+                        );
+                        $(document).on('click', '#close', function () {
+                            $("#addpurposal").removeClass("in-down");
+                            $("#addpurposal").addClass("fadeOutUp");
+                            $('#addpurposal').hide();
+                            $('.purposaldetail').show();
+                            $('#btnaddpurposal').show();
+                        });
+                    });
+
+                </script>
+                <script>
+                    var isValid = false;
+
+                    $("#validationchk").on('click', function () {
+
+                        var tch22 = $("#tch3_22").val();
+                        var tch3 = $("#tch3").val();
+                        var tch2 = $("#tch2").val();
+                        var tchm = $("#tchm").val();
+                        var pptt = $("#pptt").val();
+                        var ppd = $("#pdd").val();
+                        var morepackage = $("#morepackage").val();
+                        var priceperkg = $("#priceperkg").val();
+                        var ppdestination = $("#ppdestination").val();
+
+
+
+
+                        if (tch2 != 0) {
+                            $('#msgtch2').hide();
+                            isValid = true;
+
+
+                        }
+                        else {
+                            $("#msgtch2").show();
+                            $("#msgtch2").text("Available weight Should be Maximum of 0");
+                            $("#tch2").focus();
+                            isValid = false;
+                        }
+                        if (tch22 != 0) {
+                            $('#msgtch3').hide();
+                            isValid = true;
+
+
+                        }
+                        else {
+                            $("#msgtch3_22").show();
+                            $("#msgtch3_22").text("Available weight Should be Maximum of 0");
+                            $("#tch3_22").focus();
+                            isValid = false;
+                        }
+                        if (tch3 != 0) {
+                            $("#msgtch2").hide();
+                            isValid = true;
+
+
+                        }
+                        else {
+                            $("#msgtch2").show();
+                            $('#msgtch2').text(" Available weight Should be Maximum of 0");
+                            $('#tch3').focus();
+                            isValid = false;
+                        }
+                        if (tchm != 0) {
+                            $("#msgtchm").hide();
+                            isValid = true;
+
+
+                        }
+                        else {
+                            $("#msgtchm").show();
+                            $('#msgtchm').text(" Available weight Should be Maximum of 0");
+                            $('#tchm').focus();
+                            isValid = false;
+                        }
+                        if (priceperkg != 0 && priceperkg != null && priceperkg != "" && priceperkg != "undefined") {
+                            $("#msgpriceperkg").hide();
+                            isValid = true;
+
+
+                        }
+                        else {
+                            $("#msgpriceperkg").show();
+                           
+                            $('#msgpriceperkg').text("Currency Should be Maximum of 0");
+                            $('#priceperkg').focus();
+                            isValid = false;
+                        }
+                        if (pptt != null && pptt != "" && pptt != "undefined") {
+                            $('#msgppt').hide();
+
+                            isValid = true;
+                        }
+                        else {
+                            $('#msgppt').show();
+                            $('#msgppt').text("This Field is Required");
+                            $('#ppt').focus();
+                            isValid = false;
+                        }
+                        if (ppd != null && ppd != "" && ppd != "undefined") {
+                            $('#msgpdd').hide();
+
+                            isValid = true;
+                        }
+                        else {
+                            $('#msgpdd').show();
+                            $('#msgpdd').text("This Field is Required");
+                            $('#pdd').focus();
+                            isValid = false;
+                        }
+                        if (ppdestination != null && ppdestination != "" && ppdestination != "undefined") {
+                            $('#msgppdestination').hide();
+
+                            isValid = true;
+                        }
+                        else {
+                            $('#msgppdestination').show();
+                            $('#msgppdestination').text("This Field is Required");
+                            $('#ppdestination').focus();
+                            isValid = false;
+                        }
+                        if (morepackage != null && morepackage != "" && morepackage != "undefined") {
+                            $('#msgmorepackage').hide();
+
+                            isValid = true;
+                        }
+                        else {
+                            $('#msgmorepackage').show();
+                            $('#msgmorepackage').text("This Field is Required");
+                            $('#morepackage').focus();
+                            isValid = false;
+                        }
+
+                        if (isValid = true &&
+                            $('#msgtch2').css("display") == "none"
+                            &&
+                            $('#msgtch3').css("display") == "none"
+                            && $('#msgppdestination').css("display") == "none"
+
+                            && $("#msgppt").css("display") == "none"
+                            && $("#msgpriceperkg").css("display") == "none"
+                            && $("#msgtch2").css("display") == "none"
+                            && $("#msgmorepackage").css("display") == "none"
+                            && $("#msgtchm").css("display") == "none"
+                        ) {
+                            $("#validationchk").type = "submit";
+                            document.getElementById("validationchk").type = "submit";
+                        }
+
+
+                    });
+
+
+                </script>
+
+
+
+
+

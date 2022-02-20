@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\shipwithwithme</_PublishTargetUrl>
+    <History>True|2022-02-19T10:03:17.5698096Z;True|2022-02-19T14:34:33.6139161+05:00;True|2022-02-11T18:17:56.2555310+05:00;True|2022-01-27T20:18:11.4127373+05:00;False|2022-01-27T20:12:24.3572895+05:00;True|2022-01-08T23:33:02.8297447+05:00;True|2022-01-08T21:52:43.4931907+05:00;True|2022-01-07T21:18:01.8520300+05:00;</History>
+  </PropertyGroup>
+</Project>

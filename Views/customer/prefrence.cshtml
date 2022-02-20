@@ -1,0 +1,383 @@
+﻿
+@{
+    ViewData["Title"] = "myupcommingflight";
+    Layout = "~/Views/Layouts/_adminLayout.cshtml";
+}
+
+<style>
+    @@keyframes zoomInDown {
+  from {
+    opacity: 0;
+    transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0);
+    animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+  }
+}
+    .in-down {
+        -webkit-animation-name: zoomInDown;
+        -moz-animation-name: zoomInDown;
+        -o-animation-name: zoomInDown;
+        animation-name: zoomInDown;
+        -webkit-animation-fill-mode: both;
+        -moz-animation-fill-mode: both;
+        -o-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-duration: 3s;
+        -moz-animation-duration: 3s;
+        -o-animation-duration: 3s;
+        animation-duration: 3s;
+    }
+.zoomInDown {
+  animation-name: zoomInDown;
+}
+</style>
+
+<div class="page-wrapper">
+
+
+    <div class="container-fluid">
+        <br />
+        <br />
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div id="addprefrence" class="">
+
+
+                        <h4 class="mt-0 header-title" style=" text-align: center; color: black; font-size: 30px;">Add Purposal </h4>
+                        <br />
+                        <br />
+
+                        <form action="#" id="purposalForm" enctype="multipart/form-data" method="post">
+                            <div>
+
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group p-0">
+                                            <label>Flight Date</label>
+                                            <input name="date" class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group p-0">
+                                            <label>Available Weight</label>
+                                            <input id="tch3" type="text" name="tch3_22" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group p-0">
+                                            <label>To airport</label>
+                                            <select name="toairport" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                <option value="Egypt">Egypt</option>
+                                                <option value="Airport1">Airport1</option>
+                                                <option value="Airport2">Airport2</option>
+
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group p-0">
+                                            <label>Country</label>
+                                            <select name="tocountry" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                <option value="Egypt">Egypt</option>
+                                                <option value="pakistan">pakistan</option>
+                                                <option value="USA">USA</option>
+
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group p-0">
+                                            <label>City</label>
+                                            <select name="tocity" class="form-control mb-3" style="width: 100%; height:36px;">
+                                                <option value="Lahore">Lahore</option>
+                                                <option value="Islamabad">Islamabad</option>
+                                                <option value="Bahawalpur">Bahawalpur</option>
+
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group p-0">
+                                            <label>From airport</label>
+                                            <select name="fromairport" class="form-control mb-3" style="width: 100%; height:36px;">
+                                                <option value="Egypt">Egypt</option>
+                                                <option value="Airport1">Airport1</option>
+                                                <option value="Airport2">Airport2</option>
+
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group p-0">
+                                            <label>Country</label>
+                                            <select name="fromcountry" class="form-control mb-3" style="width: 100%; height:36px;">
+                                                <option value="Egypt">Egypt</option>
+                                                <option value="pakistan">pakistan</option>
+                                                <option value="USA">USA</option>
+
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group p-0">
+                                            <label>City</label>
+                                            <select name="fromcity" class="form-control mb-3" style="width: 100%; height:36px;">
+                                                <option value="Lahore">Lahore</option>
+                                                <option value="Islamabad">Islamabad</option>
+                                                <option value="Bahawalpur">Bahawalpur</option>
+
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                            <br />
+
+                            <div class="form-group p-0" style="text-align: center;">
+                                <button type="button" onclick="SendData()"  class="btn btn-primary waves-effect waves-light">Add prefrence</button>
+                            </div>
+
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" id="close" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                    <div class="prefrencedetail">
+                        <h4 style="text-align:center;" class="card-title">Prefrence Details</h4>
+                        <div class="row">
+
+
+                            <div class="col-md-3">
+                                <br />
+                                <button type="button" class="btn btn-primary waves-effect waves-light" id="btnaddprefrence" style="width: 80%;">Add Prefrence</button>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="prefrencedetail">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-selected="true"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Search</span></a> </li>
+                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Advance Search</span></a> </li>
+
+                        </ul>
+                        <div class="tab-content tabcontent-border">
+                            <div class="tab-pane active" id="home" role="tabpanel">
+                                <br>
+                                <div class="row">
+
+                                    <div class="col-md-3">
+
+
+                                        <div class="form-group p-0">
+                                            <label>Prefrence Date</label>
+                                            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group p-0">
+                                            <label>From airport</label>
+                                            <select class="form-control mb-3" style="width: 100%; height:36px;">
+                                                <option value="Daily">Egypt</option>
+                                                <option value="Weekly">Airport1</option>
+                                                <option value="Monthly">Airport2</option>
+
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group p-0">
+                                            <label>To airport</label>
+                                            <select class="form-control mb-3" style="width: 100%; height:36px;">
+                                                <option value="Daily">Egypt</option>
+                                                <option value="Weekly">Airport1</option>
+                                                <option value="Monthly">Airport2</option>
+
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group p-0">
+                                            <label>Available Weight</label>
+                                            <input id="tch3" type="text" value="0" name="tch3" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <br>
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light" style="width: 50%;">Filter</button>
+                                    </div>
+                                </div>
+                                <br>
+
+                            </div>
+                            <div class="tab-pane p-20" id="profile" role="tabpanel">Advance Search</div>
+
+                        </div>
+
+
+
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+
+                                            <tr>
+                                                <th>Flight Date</th>
+                                                <th>From Airport</th>
+                                                <th>To Airport</th>
+                                                <th>Available Weight</th>
+
+
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Flight Date</th>
+                                                <th>From Airport</th>
+                                                <th>To Airport</th>
+                                                <th>Available Weight</th>
+
+
+                                                <th>Actions</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+
+                                            @*@foreach (var i in ViewBag.site)
+                                                {*@
+                                            <tr>
+
+                                                <td>
+
+                                                    <a>1/1/2022</a>
+
+
+                                                </td>
+                                                <td>
+                                                    <a>Cairo & CEO</a>
+
+                                                </td>
+                                                <td>
+                                                    <a>KSA</a>
+
+                                                </td>
+                                                <td><a>10 KG</a></td>
+
+
+                                                <td><a>Details</a></td>
+
+                                            </tr>
+
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                                <script type="text/javascript">
+                                    function checkDelete() {
+                                        if (confirm('Are you sure you want to delete ?')) {
+
+                                            return true
+                                        }
+                                        else {
+                                            return false
+                                        }
+                                    }
+                                </script>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $('#addprefrence').hide();
+    $('.prefrencedetail').show();
+    $(document).ready(function () {
+
+        $(document).on('click', '#btnaddprefrence', function () {
+            $("#addprefrence").addClass("in-down");
+            $('#addprefrence').show();
+            $('.prefrencedetail').hide();
+            $('#btnaddprefrence').hide();
+        }
+        );
+        $(document).on('click', '#close', function () {
+            $("#addprefrence").removeClass("in-down");
+            $('#addprefrence').hide();
+            $('.prefrencedetail').show();
+            $('#btnaddprefrence').show();
+        });
+    });
+
+</script>
+<script type="text/javascript">
+
+    function SendData() {
+
+
+
+        //console.log(data);
+        //alert(data);
+        var formData = {};
+        var formData= $("#purposalForm").serialize();
+        // formData.date = $("#example-datetime-local-input").val();
+        //formData.tch3_22 = $("#tch3").val();
+        alert(formData);
+          
+        $.ajax(
+            {
+                type: "POST",
+                url: '/customer/submitpreference',
+                        @*url: '@Url.Action("AddToCart", "Cart", new{@area= "Cart" })',*@
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+                data: formData,
+                success: function (result) {
+                    alert('Successfully received Data ');
+                    console.log(result);
+                },
+                error: function () {
+                    alert('Failed to receive the Data');
+                    console.log('Failed ');
+                }
+            });
+
+    }
+</script>

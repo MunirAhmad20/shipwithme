@@ -1,0 +1,551 @@
+﻿
+@{
+    ViewData["Title"] = "addflight";
+    Layout = "~/Views/Layouts/_adminLayout.cshtml";
+}
+
+
+
+<div class="page-wrapper">
+
+
+    <div class="container-fluid">
+
+
+        <br />
+        <br />
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Extra Large modal <small>Click on image</small></h4>
+                    <!-- sample modal content -->
+                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                  
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                </div>
+                                <div class="modal-body">
+                                   
+
+
+                                        <h4 class="mt-0 header-title" style=" text-align: center; color: black; font-size: 30px;">Add Flight </h4>
+                                        <br />
+                                        <br />
+
+                                        <form action="/admin/addofferwall" enctype="multipart/form-data" method="post">
+
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+
+                                                    <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                                        <div class="card-body">
+
+
+                                                            <div class="form-group p-0">
+                                                                <label>Flight Date</label>
+                                                                <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                                            </div>
+
+                                                            <div class="form-group p-0">
+                                                                <label>From airport</label>
+                                                                <select class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                                    <option value="Daily">Egypt</option>
+                                                                    <option value="Weekly">Airport1</option>
+                                                                    <option value="Monthly">Airport2</option>
+
+                                                                </select>
+
+                                                            </div>
+                                                            <div class="form-group p-0">
+                                                                <label>Country</label>
+                                                                <select class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                                    <option value="Daily">Egypt</option>
+                                                                    <option value="Weekly">pakistan</option>
+                                                                    <option value="Monthly">USA</option>
+
+                                                                </select>
+
+                                                            </div>
+                                                            <div class="form-group p-0">
+                                                                <label>City</label>
+                                                                <select class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                                    <option value="Daily">Lahore</option>
+                                                                    <option value="Weekly">Islamabad</option>
+                                                                    <option value="Monthly">Bahawalpur</option>
+
+                                                                </select>
+
+                                                            </div>
+
+                                                            <div class="form-group p-0">
+                                                                <label>Available Weight</label>
+                                                                <input id="tch3" type="text" value="0" name="tch3" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                            </div>
+
+                                                            <label>Currency</label>
+                                                            <select class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                                <option value="Daily">PKR</option>
+                                                                <option value="Weekly">USSD</option>
+                                                                <option value="Monthly">RS</option>
+
+                                                            </select>
+                                                            <div class="form-group p-0">
+                                                                <label>Price For Each Kilogram</label>
+                                                                <input id="tch3" type="text" value="0" name="tch3" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                            </div>
+                                                            <label class="custom-control custom-checkbox" style="height:33px;">
+                                                                <input type="checkbox" required="" value="single" name="styled_single_checkbox" class="custom-control-input"><span class="custom-control-label">Is Negotionable</span>
+                                                            </label>
+                                                            <div class="help-block"></div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                                        <div class="card-body">
+                                                            <div class="form-group p-0">
+                                                                <label>Arrival Date</label>
+                                                                <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                                            </div>
+                                                            <div class="form-group p-0">
+                                                                <label>To airport</label>
+                                                                <select class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                                    <option value="Daily">Egypt</option>
+                                                                    <option value="Weekly">Airport1</option>
+                                                                    <option value="Monthly">Airport2</option>
+
+                                                                </select>
+
+                                                            </div>
+
+
+
+
+                                                            <div class="form-group p-0">
+                                                                <label>Country</label>
+                                                                <select class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                                    <option value="Daily">Egypt</option>
+                                                                    <option value="Weekly">pakistan</option>
+                                                                    <option value="Monthly">USA</option>
+
+                                                                </select>
+
+                                                            </div>
+
+
+
+                                                            <div class="form-group p-0">
+                                                                <label>City</label>
+                                                                <select class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                                    <option value="Daily">Lahore</option>
+                                                                    <option value="Weekly">Islamabad</option>
+                                                                    <option value="Monthly">Bahawalpur</option>
+
+                                                                </select>
+
+                                                            </div>
+                                                            <div class="form-group p-0">
+                                                                <label>Preferred Pakages Types</label>
+                                                                <input placeholder="Pickup Destination" class="form-control">
+
+                                                            </div>
+                                                            <div class="form-group p-0 " style=" height: 5.1em;">
+                                                                <label>Preffered Delivery Destenation</label>
+                                                                <input placeholder="Pickup Destination" class="form-control">
+                                                            </div>
+                                                            <div class="form-group p-0">
+                                                                <label>Preferred Pickup Destenation</label>
+                                                                <input placeholder="Pickup Destination" class="form-control">
+
+                                                            </div>
+
+                                                            <br />
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                            <br />
+
+                                            <div class="form-group p-0" style="text-align: center;">
+                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Add flight</button>
+                                            </div>
+
+                                        </form>
+
+                                   
+                                    <br />
+                                    <h1 style="text-align:center;">  Blacklist Items </h1>
+                                    <div class="card">
+                                        <div class="card-body">
+
+
+                                            <div class="table-responsive">
+                                                <table class="table table-striped" style="overflow:auto;">
+                                                    <thead>
+                                                        <tr>
+
+                                                            <th>Flight Date</th>
+                                                            <th>From Airport</th>
+                                                            <th>To Airport</th>
+                                                            <th>Available Weight</th>
+                                                            <th>Aproval</th>
+                                                            <th>Purposals</th>
+
+
+                                                        </tr>
+                                                    </thead>
+
+
+                                                    <tbody style="overflow-y:auto;">
+
+
+                                                        <tr>
+
+                                                            <td>
+
+                                                                <a>1/1/2022</a>
+
+
+                                                            </td>
+                                                            <td>
+                                                                <a>Cairo & CEO</a>
+
+                                                            </td>
+                                                            <td>
+                                                                <a>KSA</a>
+
+                                                            </td>
+                                                            <td><a>10 KG</a></td>
+                                                            <td><a>Yes</a></td>
+                                                            <td><a>5</a></td>
+
+
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>
+
+                                                                <a>1/1/2022</a>
+
+
+                                                            </td>
+                                                            <td>
+                                                                <a>Cairo & CEO</a>
+
+                                                            </td>
+                                                            <td>
+                                                                <a>KSA</a>
+
+                                                            </td>
+                                                            <td><a>10 KG</a></td>
+                                                            <td><a>Yes</a></td>
+                                                            <td><a>5</a></td>
+
+
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>
+
+                                                                <a>1/1/2022</a>
+
+
+                                                            </td>
+                                                            <td>
+                                                                <a>Cairo & CEO</a>
+
+                                                            </td>
+                                                            <td>
+                                                                <a>KSA</a>
+
+                                                            </td>
+                                                            <td><a>10 KG</a></td>
+                                                            <td><a>No</a></td>
+                                                            <td><a>5</a></td>
+
+
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>
+
+                                                                <a>1/1/2022</a>
+
+
+                                                            </td>
+                                                            <td>
+                                                                <a>Cairo & CEO</a>
+
+                                                            </td>
+                                                            <td>
+                                                                <a>KSA</a>
+
+                                                            </td>
+                                                            <td><a>10 KG</a></td>
+                                                            <td><a>Pending</a></td>
+                                                            <td><a>5</a></td>
+
+
+                                                        </tr>
+
+                                                    </tbody>
+
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+                               
+                 
+                            <!-- /.modal-content -->
+              
+                        <!-- /.modal-dialog -->
+                  
+                    <!-- /.modal -->
+                   
+                    <img src="~/maeen_asset/assets/images/background/profile-bg.jpg" alt="default" data-toggle="modal" data-target=".bs-example-modal-lg" class="model_img img-responsive">
+                  
+                </div>
+            </div>
+        </div>
+        </div>
+
+   
+        <!--<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Responsive model</h4>
+            <!-- sample modal content -->
+       
+            <!--<div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">Modal Content is Responsive</h4>
+                        </div>
+                        <div class="modal-body">
+                          
+
+                                        <h4 class="mt-0 header-title" style=" text-align: center; color: black; font-size: 30px;">Add Flight </h4>
+                                        <br />
+                                        <br />
+
+                                        <form action="/admin/addofferwall" enctype="multipart/form-data" method="post">
+
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+
+                                                    <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                                        <div class="card-body">
+
+
+                                                            <div class="form-group p-0">
+                                                                <label>Flight Date</label>
+                                                                <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                                            </div>
+
+                                                            <div class="form-group p-0">
+                                                                <label>From airport</label>
+                                                                <select class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                                    <option value="Daily">Egypt</option>
+                                                                    <option value="Weekly">Airport1</option>
+                                                                    <option value="Monthly">Airport2</option>
+
+                                                                </select>
+
+                                                            </div>
+                                                            <div class="form-group p-0">
+                                                                <label>Country</label>
+                                                                <select class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                                    <option value="Daily">Egypt</option>
+                                                                    <option value="Weekly">pakistan</option>
+                                                                    <option value="Monthly">USA</option>
+
+                                                                </select>
+
+                                                            </div>
+                                                            <div class="form-group p-0">
+                                                                <label>City</label>
+                                                                <select class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                                    <option value="Daily">Lahore</option>
+                                                                    <option value="Weekly">Islamabad</option>
+                                                                    <option value="Monthly">Bahawalpur</option>
+
+                                                                </select>
+
+                                                            </div>
+
+                                                            <div class="form-group p-0">
+                                                                <label>Available Weight</label>
+                                                                <input id="tch3" type="text" value="0" name="tch3" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                            </div>
+
+                                                            <label>Currency</label>
+                                                            <select class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                                <option value="Daily">PKR</option>
+                                                                <option value="Weekly">USSD</option>
+                                                                <option value="Monthly">RS</option>
+
+                                                            </select>
+                                                            <div class="form-group p-0">
+                                                                <label>Price For Each Kilogram</label>
+                                                                <input id="tch3" type="text" value="0" name="tch3" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                                            </div>
+                                                            <label class="custom-control custom-checkbox" style="height:33px;">
+                                                                <input type="checkbox" required="" value="single" name="styled_single_checkbox" class="custom-control-input"><span class="custom-control-label">Is Negotionable</span>
+                                                            </label>
+                                                            <div class="help-block"></div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                                        <div class="card-body">
+                                                            <div class="form-group p-0">
+                                                                <label>Arrival Date</label>
+                                                                <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                                            </div>
+                                                            <div class="form-group p-0">
+                                                                <label>To airport</label>
+                                                                <select class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                                    <option value="Daily">Egypt</option>
+                                                                    <option value="Weekly">Airport1</option>
+                                                                    <option value="Monthly">Airport2</option>
+
+                                                                </select>
+
+                                                            </div>
+
+
+
+
+                                                            <div class="form-group p-0">
+                                                                <label>Country</label>
+                                                                <select class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                                    <option value="Daily">Egypt</option>
+                                                                    <option value="Weekly">pakistan</option>
+                                                                    <option value="Monthly">USA</option>
+
+                                                                </select>
+
+                                                            </div>
+
+
+
+                                                            <div class="form-group p-0">
+                                                                <label>City</label>
+                                                                <select class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                                    <option value="Daily">Lahore</option>
+                                                                    <option value="Weekly">Islamabad</option>
+                                                                    <option value="Monthly">Bahawalpur</option>
+
+                                                                </select>
+
+                                                            </div>
+                                                            <div class="form-group p-0">
+                                                                <label>Preferred Pakages Types</label>
+                                                                <input placeholder="Pickup Destination" class="form-control">
+
+                                                            </div>
+                                                            <div class="form-group p-0 " style=" height: 5.1em;">
+                                                                <label>Preffered Delivery Destenation</label>
+                                                                <input placeholder="Pickup Destination" class="form-control">
+                                                            </div>
+                                                            <div class="form-group p-0">
+                                                                <label>Preferred Pickup Destenation</label>
+                                                                <input placeholder="Pickup Destination" class="form-control">
+
+                                                            </div>
+
+                                                            <br />
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                            <br />
+
+                                            <div class="form-group p-0" style="text-align: center;">
+                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Add flight</button>
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+                                    <br />
+                                    <h1 style="text-align:center;">  Blacklist Items </h1>
+                                    <div class="card">
+                                        <div class="card-body">
+
+
+                                            <div class="table-responsive">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+
+                                                            <th>Flight Date</th>
+                                                            <th>From Airport</th>
+                                                            <th>To Airport</th>
+                                                            <th>Available Weight</th>
+                                                            <th>Aproval</th>
+                                                            <th>Purposals</th>
+
+
+                                                        </tr>
+                                                    </thead>
+
+
+                                                    <tbody>-->
+
+                              
+<!-- end row -->

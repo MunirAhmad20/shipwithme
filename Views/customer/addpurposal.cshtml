@@ -1,0 +1,359 @@
+﻿
+@{
+    ViewData["Title"] = "addprefrence";
+    Layout = "~/Views/Layouts/_adminLayout.cshtml";
+}
+
+
+<div class="page-wrapper">
+
+
+    <div class="container-fluid">
+
+
+        <br />
+        <br />
+
+        <div class="col-12">
+            <div class="card m-b-30">
+                <div class="card-body">
+
+                    <h4 class="mt-0 header-title" style=" text-align: center; color: black; font-size: 30px;">Add Purposal </h4>
+                    <br />
+                    <br />
+                    @foreach (var i in ViewBag.find)
+                    {
+
+
+                        <form action="/customer/submitpurposal" enctype="multipart/form-data" method="post">
+
+
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="card-body">
+
+                                        <h6 class="card-subtitle">You can upload maximum 5 Images </h6>
+                                        <div class="dropzone">
+                                            <div class="fallback">
+                                                <input name="files" src="files" type="file" multiple />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6">
+
+                                    <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                        <div class="card-body">
+
+
+                                            <div class="form-group p-0">
+                                                <label>Flight Date</label>
+                                                <input name="date" class="form-control" type="datetime-local" value="@i.FlightDate" id="example-datetime-local-input">
+                                                <input style="display:none" name="passengername" value="@i.PassengerName" />
+                                            </div>
+                                            <div class="form-group p-0">
+                                                <label>From airport</label>
+                                                <select name="fromairport" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                    <option value="@i.FromAirport">@i.FromAirport</option>
+
+
+                                                </select>
+
+                                            </div>
+                                            <div class="form-group p-0">
+                                                <label>Country</label>
+                                                <select name="fromcountry" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                    <option value="@i.FromCountry">@i.FromCountry</option>
+
+
+                                                </select>
+
+                                            </div>
+
+
+
+                                            <div class="form-group p-0">
+                                                <label>City</label>
+                                                <select name="fromcity" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                    <option value="@i.FromCity">@i.FromCity</option>
+
+
+                                                </select>
+
+
+                                            </div>
+
+                                            <div class="form-group p-0">
+                                                <label>Preferred Delivery Destination</label>
+                                                <input name="pdd" value="@i.PrefferedDeliveryDestination" placeholder="Delivery Destination" class="form-control">
+
+                                            </div>
+                                            <div class="form-group p-0">
+                                                <label>Available Weight</label>
+                                                <input id="tch3_22" type="text" value="@i.AvailableWeight" name="tch3_22" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                            </div>
+                                            <div class="form-group p-0">
+                                                <label>Required Weight</label>
+                                                <input id="tch3" type="text" value="0" name="tch3" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                            </div>
+
+
+                                            <div class="form-group p-0">
+                                                <label>Price Per 1 KG</label>
+                                                <input name="priceperkg" value="@i.PricePerKG" placeholder="currency" class="form-control">
+                                            </div>
+
+
+                                            <div class="controls" style="padding-top: 14%;">
+                                                <label class="custom-control custom-checkbox">
+                                                    <input type="checkbox" value="yes" name="isnegotionable" class="custom-control-input"><span class="custom-control-label">Is Negotionable</span>
+                                                </label>
+                                                <div class="help-block"></div>
+                                            </div>
+                                            <br />
+                                            <br />
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+
+                                    <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+
+                                        <div class="card-body">
+
+
+
+
+                                            <div class="form-group p-0">
+                                                <label>To airport</label>
+                                                <select name="toairport" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                    <option value="Egypt">Egypt</option>
+                                                    <option value="Airport1">Airport1</option>
+                                                    <option value="Airport2">Airport2</option>
+
+                                                </select>
+                                            </div>
+
+
+
+                                            <div class="form-group p-0">
+                                                <label>Country</label>
+                                                <select name="tocountry" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                    <option value="Egypt">Egypt</option>
+                                                    <option value="Pakistan">pakistan</option>
+                                                    <option value="USA">USA</option>
+
+                                                </select>
+
+                                            </div>
+
+
+
+                                            <div class="form-group p-0">
+                                                <label>City</label>
+                                                <select name="tocity" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                    <option value="Lahore">Lahore</option>
+                                                    <option value="Islamabad">Islamabad</option>
+                                                    <option value="Bahawalpur">Bahawalpur</option>
+
+                                                </select>
+
+                                            </div>
+
+
+                                            <div class="form-group p-0">
+                                                <label>Preferred Pickup Destination</label>
+                                                <input name="ppdestination" placeholder="Pickup Destination" class="form-control">
+
+                                            </div>
+
+
+
+
+
+                                            <div class="form-group p-0">
+                                                <label>packages types</label>
+                                                <select name="packagetype" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                    <option value="Package 1">Package 1</option>
+                                                    <option value="Package 2">Package 2</option>
+                                                    <option value="Package 3">Package 3</option>
+
+                                                </select>
+
+
+                                            </div>
+
+
+
+
+                                            <div class="form-group p-0">
+                                                <label>packages sub types</label>
+                                                <select name="packagesubtype" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                    <option value="Package subtype 1 ">Package subtype 1</option>
+                                                    <option value="Package subtype 2">Package subtype 2</option>
+                                                    <option value="Package subtype 3">Package subtype 3</option>
+
+                                                </select>
+
+
+                                            </div>
+
+
+                                            <div class="form-group p-0">
+                                                <label>Add More Packages Types</label>
+                                                <input name="morepackage" placeholder="Add More Packages Type" class="form-control">
+
+                                            </div>
+
+
+
+
+
+                                            <div class="form-group p-0">
+                                                <label>Prefered packages types</label>
+                                                <select name="prefferdpackagetypes" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                    <option value="Package 1">Package 1</option>
+                                                    <option value="Package 2">Package 2</option>
+                                                    <option value="Package 3">Package 3</option>
+
+                                                </select>
+
+
+                                            </div>
+                                            <div class="form-group p-0">
+                                                <label>Prefferd delivery time after arival</label>
+                                                <input id="tch2" type="text" value="0" name="tch2" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control" style="display: block;">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*<div class="container-fluid">
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Image Upload Maximu 5 images</h4>
+
+                                                    <form class="dropzone">
+                                                        <div class="fallback">
+                                                            <input name="file" type="file" multiple />
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>*@
+
+
+                            <br />
+
+                            <div class="form-group p-0" style="text-align: center;">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit Purposal</button>
+                            </div>
+
+                        </form>
+                    }
+                </div>
+                <input id="txtId" type="text" />
+                <input id="txtName" type="text" />
+                <button type="button" id="btnGetEmployee">test</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+        </div> <!-- end col -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#btnGetEmployee").click(function () {
+
+            var id = $('#txtId').val();
+           
+
+            $.ajax
+                (
+                    {
+                        type: "GET",
+                        url: "/customer/testjquery",
+                        contentType: "Application/json;charset=utf-8",
+                        data: { departid: id },
+                        success: function (data) {
+                            console.log("result", data);
+                            alert(data[0].city);
+                            alert(2);
+                            $("#section").append(response);
+                        },
+
+
+                    }
+                );
+
+        }
+
+
+
+
+
+        );
+
+
+
+    }
+
+
+    );
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+@*<script>
+
+
+
+    $(document).ready(function () {
+        $('#btnGetEmployee').click(function () {
+
+            var empId = $('#txtId').val();
+            alert(empId);
+            $.ajax({
+                url: 'customer/testjquery',
+                async: false,
+                contentType: "application/json;",
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+
+                    $.each(data, function (index, item) {
+
+                        $("#txtName").val(item.Country);
+                    });
+                },
+                error: function (err) {
+                    alert(err);
+                }
+            });
+        });
+    });
+</script>*@
+

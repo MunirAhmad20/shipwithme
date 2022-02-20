@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewData["Title"] = "notification";
+    Layout = "~/Views/Layouts/_adminLayout.cshtml";
+}
+<div class="page-wrapper">
+    <br />
+    <br />
+
+    <div class="container-fluid">
+        <div class="col-12">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <div class="col-md-12">
+                        <h4>Notification</h4>
+                        @if (ViewBag.userapprove != null)
+                        {
+                            @foreach (var i in ViewBag.userapprove)
+                            {
+                                <div class="alert alert-success">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                    <h3 class="text-success"><i class="fa fa-check-circle"></i> Success</h3> Your account has been Approved successfully 
+                                </div>
+                            }
+                            }
+
+                            @if (ViewBag.flightdeactivated != null)
+                            {
+                                @foreach (var i in ViewBag.flightdeactivated)
+                                {
+
+                                    <div class="alert alert-info">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                        <h3 class="text-info"><i class="fa fa-exclamation-circle"></i> Information</h3> Your Flight @i.Id has been deactivated due to reason
+                                    </div>
+                                }
+                            }
+                            @if (ViewBag.userblock != null)
+                            {
+                                @foreach (var i in ViewBag.userblock)
+                                {
+
+
+                                    <div class="alert alert-warning">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                        <h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Warning</h3> Your Account has been block due to reason
+                                    </div>
+
+                                }
+                            }
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
+
+

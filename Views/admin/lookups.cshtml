@@ -1,0 +1,1688 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Layouts/Maeen_Layout.cshtml";
+}
+
+
+<div class="page-wrapper">
+    <div class="container-fluid">
+
+        <br />
+        <br />
+        @* acopunttype Form Start*@
+        <div class="modal fade" id="exampleModalLongaccountlist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Accounts</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="accountlist" class="">
+                            <div class="col-12">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+
+                                        <form action="#" method="post" id="accountForm">
+                                            <div class="col-12">
+                                                <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                                    <div class="card-body">
+
+
+
+
+                                                        <div class="form-group p-0">
+                                                            <div class="form-group p-0">
+                                                                <label>Account Type</label>
+                                                                <input required="" name="account" id="accounttxt" placeholder="Account type" class="form-control">
+
+                                                                <input name="accountid" style="display:none;" id="accountidtxt" />
+                                                            </div>
+                                                            <div class="form-group p-0">
+                                                                <label>Account Limit</label>
+                                                                <input required="" name="accountlimit" id="accountlimittxt" placeholder="Account Limit" class="form-control">
+
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <br />
+
+
+
+                                                    <div class="form-group p-0" style="text-align: center;">
+                                                        <button type="button" id="accountnutton" onclick="addaccount()" class="btn btn-primary waves-effect waves-light">Submit</button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+                                        </form>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" id="closepurposal" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @* Weight list*@
+
+
+        <div class="modal fade" id="exampleModalLongweightlist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Weight</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="weightlist" class="">
+                            <div class="col-12">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+
+                                        <form action="#" method="post" id="weightForm">
+                                            <div class="col-12">
+                                                <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                                    <div class="card-body">
+
+
+
+
+                                                        <div class="form-group p-0">
+                                                            <div class="form-group p-0">
+                                                                <label>Weight</label>
+                                                                <input required name="weight" id="weighttxt" placeholder="1KG-5KG" class="form-control">
+                                                                <input name="weightid" style="display:none;" id="weightidtxt" />
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <br />
+
+
+
+                                                    <div class="form-group p-0" style="text-align: center;">
+                                                        <button type="button" id="weightnutton" onclick="addweight()" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+                                        </form>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" id="closepurposal" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+
+
+                        @* Purposal Form Start*@
+                        <div class="modal fade" id="exampleModalLongreason" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Reasons</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div id="reasonlist" class="">
+                                            <div class="col-12">
+                                                <div class="card m-b-30">
+                                                    <div class="card-body">
+
+                                                        <form action="#" method="post" id="reasonForm">
+                                                            <div class="col-12">
+                                                                <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                                                    <div class="card-body">
+
+
+
+
+                                                                        <div class="form-group p-0">
+                                                                            <div class="form-group p-0">
+                                                                                <label>Reason</label>
+                                                                                <input required="" name="reason" id="reasontxt" placeholder="Reason" class="form-control">
+                                                                                <input name="reasonid" style="display:none;" id="reasonidtxt" />
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <br />
+
+
+
+                                                                    <div class="form-group p-0" style="text-align: center;">
+                                                                        <button type="button" id="reasonnutton" onclick="addreason()" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+
+
+
+
+                                                        </form>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" id="closepurposal" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        @* Purposal Form Start*@
+
+                        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Airport</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div id="airportlist" class="">
+                                            <div class="col-12">
+                                                <div class="card m-b-30">
+                                                    <div class="card-body">
+
+                                                        <form action="#" method="post" id="airportForm">
+                                                            <div class="col-12">
+                                                                <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                                                    <div class="card-body">
+
+
+
+
+                                                                        <div class="form-group p-0">
+                                                                            <div class="form-group p-0">
+                                                                                <label>Airport</label>
+                                                                                <input required="" name="airport" id="airporttxt" placeholder="Airport" class="form-control">
+                                                                                <input name="airportid" style="display:none;" id="airportidtxt" />
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <br />
+
+
+
+                                                                    <div class="form-group p-0" style="text-align: center;">
+                                                                        <button type="button" id="airportnutton" onclick="addairport()" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+
+
+
+
+                                                        </form>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" id="closepurposal" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*City*@
+
+
+                        <div class="modal fade" id="exampleModalcity" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">City</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div id="city" class="">
+                                            <div class="col-12">
+
+
+                                                <form action="#" id="cityForm" method="post">
+                                                    <div class="col-12">
+                                                        <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                                            <div class="card-body">
+
+
+
+                                                                <div class="row">
+
+                                                                    <div class="col-6">
+                                                                        <div class="form-group p-0">
+                                                                            <label>Country</label>
+                                                                            <select name="nationality" class="form-control mb-3 " style="width: 100%; height:36px;">
+                                                                                @foreach (var item in ViewBag.country)
+                                                                                {
+                                                                                    <option value="@item.Country">@item.Country</option>
+                                                                                }
+
+
+
+                                                                            </select>
+
+
+                                                                        </div>
+
+
+                                                                    </div>
+
+                                                                    <div class="col-6">
+
+                                                                        <div class="form-group p-0">
+                                                                            <div class="form-group p-0">
+                                                                                <label>City</label>
+                                                                                <input required="" name="city" id="citytxt" placeholder="City" class="form-control">
+                                                                                <input name="cityid" style="display:none;" id="cityidtxt" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+                                                            <br />
+
+
+
+                                                            <div class="form-group p-0" style="text-align: center;">
+                                                                <button type="button" id="citynutton" onclick="addcity()" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+
+                                                </form>
+
+
+                                                <div class="modal-footer">
+                                                    <button type="button" id="closepurposal" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    @*country*@
+
+                    <div class="modal fade" id="exampleModalLongcountry" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Country</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div id="country" class="">
+                                        <div class="col-12">
+                                            <div class="card m-b-30">
+                                                <div class="card-body">
+
+                                                    <form action="#" id="countryForm" method="post">
+                                                        <div class="col-12">
+                                                            <div class="card" style=" box-shadow: 1px 1px 5px 0px darkgrey;">
+                                                                <div class="card-body">
+
+
+
+
+                                                                    <div class="form-group p-0">
+                                                                        <div class="form-group p-0">
+
+
+                                                                            <label>Country</label>
+                                                                            <input required="" name="country" id="countrytxt" placeholder="Country" class="form-control">
+                                                                            <input style="display:none;" name="countryid" id="countryid" placeholder="Airport" class="form-control">
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                                <br />
+
+
+
+                                                                <div class="form-group p-0" style="text-align: center;">
+                                                                    <button type="button" id="countrynutton" onclick="addcountry()" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+
+
+
+                                                    </form>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" id="closepurposal" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Airport</span></a> </li>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Country</span></a> </li>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">City</span></a> </li>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#reasontab" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Reason</span></a> </li>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#accounttab" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Account Type</span></a> </li>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#weighttab" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Customize Weight</span></a> </li>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#liveshoppingtab" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Live Shopping</span></a> </li>
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content tabcontent-border">
+                                        <div class="tab-pane p-20" id="messages" role="tabpanel">
+
+
+
+
+
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">City LookUps</h4>
+                                                    <button style="float:right" type="button" id="addcity" class="btn btn-primary waves-effect waves-light">Add New</button>
+                                                    <div class="table-responsive m-t-40">
+                                                        <table class="table table-bordered table-striped myTable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Country List</th>
+                                                                    <th>City List</th>
+                                                                    <th>Status</th>
+
+                                                                    <th>Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach (var i in ViewBag.city)
+                                                                {
+
+
+                                                                    <tr>
+                                                                        <td>@i.country</td>
+                                                                        <td>@i.City</td>
+                                                                        <td>@i.Status</td>
+                                                                        <td class="text-nowrap">
+                                                                            <a onclick="editcity('@i.Id','@i.City')" data-toggle="tooltip" data-original-title="Edit" aria-describedby="tooltip202601"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+
+                                                                            @if (i.Status == "activate")
+                                                                            {
+                                                                                <a onclick="checkcityDelete('@i.Id' ,'@i.Status')" data-toggle="tooltip" data-original-title="Deactivate"> <i class="fa fa-close text-danger"></i> </a>
+                                                                            }
+                                                                            @if (i.Status == "deactivate")
+                                                                            {
+                                                                                <a onclick="checkcityDelete('@i.Id','@i.Status')" data-toggle="tooltip" data-original-title="Activate"> <i class="fa fa-send text-success"></i> </a>
+                                                                            }
+
+
+                                                                        </td>
+
+                                                                    </tr>
+                                                                }
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane p-20" id="liveshoppingtab" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">Live Shopping </h4>
+                                                            <br />
+                                                            <button type="button" style="float:left;" class="btn btn-primary waves-effect waves-light">Activated</button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane p-20" id="weighttab" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">Weight LookUps</h4>
+                                                            <button type="button" style="float:right;" id="addweight" class="btn btn-primary waves-effect waves-light">Add New</button>
+                                                            <div class="table-responsive m-t-40">
+                                                                <table id="tblProducts" class="table table-bordered table-striped myTable">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Weight List</th>
+
+                                                                            <th>Status</th>
+
+                                                                            <th>Action</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        @foreach (var i in ViewBag.weightlist)
+                                                                        {
+
+
+                                                                            <tr>
+                                                                                <td>@i.weightlimit</td>
+
+
+                                                                                <td>@i.Status</td>
+                                                                                <td class="text-nowrap">
+                                                                                    <a onclick="editweight('@i.Id','@i.weightlimit')" data-toggle="tooltip" data-original-title="Edit" aria-describedby="tooltip202601"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+
+                                                                                    @if (i.Status == "activate")
+                                                                                    {
+                                                                                        <a onclick="checkweightDelete('@i.Id' ,'@i.Status')" data-toggle="tooltip" data-original-title="Deactivate"> <i class="fa fa-close text-danger"></i> </a>
+                                                                                    }
+                                                                                    @if (i.Status == "deactivate")
+                                                                                    {
+                                                                                        <a onclick="checkweightDelete('@i.Id','@i.Status')" data-toggle="tooltip" data-original-title="Activate"> <i class="fa fa-send text-success"></i> </a>
+                                                                                    }
+
+
+                                                                                </td>
+
+                                                                            </tr>
+                                                                        }
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane p-20" id="accounttab" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">Account LookUps</h4>
+                                                            <button type="button" style="float:right;" id="addaccount" class="btn btn-primary waves-effect waves-light">Add New</button>
+                                                            <div class="table-responsive m-t-40">
+                                                                <table id="tblProducts" class="table table-bordered table-striped myTable">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Account Type List</th>
+                                                                            <th>Limit</th>
+                                                                            <th>Status</th>
+
+                                                                            <th>Action</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        @foreach (var i in ViewBag.accoutlist)
+                                                                        {
+
+
+                                                                            <tr>
+                                                                                <td>@i.accounttitle</td>
+                                                                                <td>@i.accountlimits</td>
+
+                                                                                <td>@i.Status</td>
+                                                                                <td class="text-nowrap">
+                                                                                    <a onclick="editaccount('@i.Id','@i.accounttitle','@i.accountlimits')" data-toggle="tooltip" data-original-title="Edit" aria-describedby="tooltip202601"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+
+                                                                                    @if (i.Status == "activate")
+                                                                                    {
+                                                                                        <a onclick="checkaccountDelete('@i.Id' ,'@i.Status')" data-toggle="tooltip" data-original-title="Deactivate"> <i class="fa fa-close text-danger"></i> </a>
+                                                                                    }
+                                                                                    @if (i.Status == "deactivate")
+                                                                                    {
+                                                                                        <a onclick="checkaccountDelete('@i.Id','@i.Status')" data-toggle="tooltip" data-original-title="Activate"> <i class="fa fa-send text-success"></i> </a>
+                                                                                    }
+
+
+                                                                                </td>
+
+                                                                            </tr>
+                                                                        }
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="tab-pane active" id="home" role="tabpanel">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Airport LookUps</h4>
+                                                    <button type="button" style="float:right;" id="addairport" class="btn btn-primary waves-effect waves-light">Add New</button>
+
+                                                    <div class="table-responsive m-t-40">
+                                                        <table class="table table-bordered table-striped myTable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Airport List</th>
+                                                                    <th>Status</th>
+                                                                    <th>Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach (var i in ViewBag.airport)
+                                                                {
+
+
+                                                                    <tr>
+                                                                        <td>@i.Airport</td>
+                                                                        <td>@i.Status</td>
+                                                                        <td class="text-nowrap">
+                                                                            <a onclick="editairport('@i.Id','@i.Airport')" data-toggle="tooltip" data-original-title="Edit" aria-describedby="tooltip202601"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                                            @if (i.Status == "activate")
+                                                                            {
+                                                                                <a onclick="checkairportDelete('@i.Id' ,'@i.Status')" data-toggle="tooltip" data-original-title="Deactivate"> <i class="fa fa-close text-danger"></i> </a>
+                                                                            }
+                                                                            @if (i.Status == "deactivate")
+                                                                            {
+                                                                                <a onclick="checkairportDelete('@i.Id','@i.Status')" data-toggle="tooltip" data-original-title="Activate"> <i class="fa fa-send text-success"></i> </a>
+                                                                            }
+
+
+                                                                        </td>
+
+                                                                    </tr>
+                                                                }
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane p-20" id="reasontab" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">Reason LookUps</h4>
+                                                            <button type="button" style="float:right;" id="addreason" class="btn btn-primary waves-effect waves-light">Add New</button>
+                                                            <div class="table-responsive m-t-40">
+                                                                <table class="table table-bordered table-striped myTable">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Reason List</th>
+                                                                            <th>Status</th>
+                                                                            <th>Action</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        @foreach (var i in ViewBag.reason)
+                                                                        {
+
+
+                                                                            <tr>
+                                                                                <td>@i.reasons</td>
+                                                                                <td>@i.Status</td>
+                                                                                <td class="text-nowrap">
+                                                                                    <a onclick="editreason('@i.Id','@i.reasons')" data-toggle="tooltip" data-original-title="Edit" aria-describedby="tooltip202601"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                                                    @if (i.Status == "activate")
+                                                                                    {
+                                                                                        <a onclick="checkreasonDelete('@i.Id' ,'@i.Status')" data-toggle="tooltip" data-original-title="Deactivate"> <i class="fa fa-close text-danger"></i> </a>
+                                                                                    }
+                                                                                    @if (i.Status == "deactivate")
+                                                                                    {
+                                                                                        <a onclick="checkreasonDelete('@i.Id','@i.Status')" data-toggle="tooltip" data-original-title="Activate"> <i class="fa fa-send text-success"></i> </a>
+                                                                                    }
+                                                                                </td>
+
+                                                                            </tr>
+                                                                        }
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane p-20" id="profile" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">Country LookUps</h4>
+                                                            <button type="button" style="float:right;" id="addcountry" class="btn btn-primary waves-effect waves-light">Add New</button>
+                                                            <div class="table-responsive m-t-40">
+                                                                <table class="table table-bordered table-striped myTable">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Country List</th>
+                                                                            <th>Status</th>
+                                                                            <th>Action</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        @foreach (var i in ViewBag.country)
+                                                                        {
+
+
+                                                                            <tr>
+                                                                                <td>@i.Country</td>
+                                                                                <td>@i.Status</td>
+                                                                                <td class="text-nowrap">
+                                                                                    <a onclick="editcountry('@i.Id','@i.Country')" data-toggle="tooltip" data-original-title="Edit" aria-describedby="tooltip202601"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                                                    @if (i.Status == "activate")
+                                                                                    {
+                                                                                        <a onclick="checkDelete('@i.Id' ,'@i.Status')" data-toggle="tooltip" data-original-title="Deactivate"> <i class="fa fa-close text-danger"></i> </a>
+                                                                                    }
+                                                                                    @if (i.Status == "deactivate")
+                                                                                    {
+                                                                                        <a onclick="checkDelete('@i.Id','@i.Status')" data-toggle="tooltip" data-original-title="Activate"> <i class="fa fa-send text-success"></i> </a>
+                                                                                    }
+
+
+                                                                                </td>
+
+                                                                            </tr>
+                                                                        }
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <script type="text/javascript">
+                function checkDelete(count, status) {
+
+                    delcountry(count, status);
+                    //if (confirm('Do you sure you want to Delete ?')) {
+
+
+                    //}
+                    //else {
+                    //    return false
+                    //}
+                }
+
+                function checkcityDelete(count, status) {
+                    /*  if (confirm('Are you sure you want to Delete ?'))*/
+
+                    delcity(count, status);
+
+                    //else {
+                    //    return false
+                    //}
+                }
+                function checkreasonDelete(count, status) {
+                    delreason(count, status);
+                    //if (confirm('Are you sure you want to Delete ?')) {
+
+
+                    //}
+                    //else {
+                    //    return false
+                    //}
+                }
+                function checkaccountDelete(count, status) {
+                    delaccount(count, status);
+                    //if (confirm('Are you sure you want to Delete ?')) {
+
+
+                    //}
+                    //else {
+                    //    return false
+                    //}
+                }
+                function checkweightDelete(count, status) {
+                    delweight(count, status);
+                    //if (confirm('Are you sure you want to Delete ?')) {
+
+
+                    //}
+                    //else {
+                    //    return false
+                    //}
+                }
+                function checkairportDelete(count, status) {
+                    delairport(count, status);
+                    //if (confirm('Are you sure you want to Delete ?')) {
+
+
+                    //}
+                    //else {
+                    //    return false
+                    //}
+                }
+            </script>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script type="text/javascript">
+                /*     $('#airportlist').hide();*/
+                /*        $('#city').hide();*/
+              /*  $('#country').hide();*/
+             /*   $('#reasonlist').hide();*/
+           /*     $('#accountlist').hide();*/
+             /*   $('#weightlist').hide();*/
+                $(document).on('click', '#addairport', function () {
+
+                    $('#cityidtxt').val("");
+                    $('#airportidtxt').val("");
+                    $('#countryid').val("");
+                    $('#countrytxt').val("")
+                    $('#citytxt').val("");
+                    $('#airporttxt').val("");
+                           $('#airportlist').show();
+                    $('#exampleModalLong').modal('show');
+                    /*   $("#airportlist").addClass("in-down");*/
+                    $('#airportnutton').text("Submit");
+                    //$('#city').hide();
+                    //$('#country').hide();
+
+                });
+                $(document).on('click', '#addweight', function () {
+
+                    $('#cityidtxt').val("");
+                    $('#accountidtxt').val("");
+                    $('#reasonidtxt').val("");
+                    $('#weightidtxt').val("");
+                    $('#weightid').val("");
+                    $('#countrytxt').val("")
+                    $('#weighttxt').val("")
+                    $('#weighttxt').val("")
+                    $('#citytxt').val("");
+                    $('#airporttxt').val("");
+                  /*  $('#reasonlist').hide();*/
+
+                    $('#weightlist').show();
+                    $('#exampleModalLongweightlist').modal('show');
+                   /* $("#weightlist").addClass("in-down");*/
+                    $('#weightnutton').text("Submit");
+                    //$('#city').hide();
+                    //$('#country').hide();
+                    //$('#reasonlist').hide();
+                    //$('#accountlist').hide();
+
+                });
+                $(document).on('click', '#addaccount', function () {
+
+                    $('#cityidtxt').val("");
+                    $('#accountidtxt').val("");
+                    $('#reasonidtxt').val("");
+                    $('#airportidtxt').val("");
+                    $('#countryid').val("");
+                    $('#countrytxt').val("")
+                    $('#accounttxt').val("")
+                    $('#reasontxt').val("")
+                    $('#citytxt').val("");
+                    $('#airporttxt').val("");
+                   
+                    $('#accountlist').show();
+                    $('#exampleModalLongaccountlist').modal('show');
+                   /* $("#reasonlist").addClass("in-down");*/
+                    $('#accountnutton').text("Submit");
+                    //$('#city').hide();
+                    //$('#country').hide();
+                   /* $('#reasonlist').show();*/
+                    //$('#accountlist').show();
+                    //$("#accountlist").addClass("fadeInDown");
+                });
+                $(document).on('click', '#addreason', function () {
+
+                    $('#cityidtxt').val("");
+                    $('#reasonidtxt').val("");
+                    $('#airportidtxt').val("");
+                    $('#countryid').val("");
+                    $('#countrytxt').val("")
+                    $('#reasontxt').val("")
+                    $('#citytxt').val("");
+                    $('#airporttxt').val("");
+                    $('#reasonlist').show();
+                    $('#exampleModalLongreason').modal('show');
+                 /*   $("#reasonlist").addClass("in-down");*/
+                    $('#airportnutton').text("Submit");
+                    //$('#city').hide();
+                    //$('#country').hide();
+                
+                });
+                $(document).on('click', '#addcity', function () {
+                    $('#cityidtxt').val("");
+                    $('#airportidtxt').val("");
+                    $('#countryid').val("");
+                    $('#countrytxt').val("");
+                    $('#citytxt').val("");
+                    $('#airporttxt').val("");
+               /*     $('#airportlist').hide();*/
+                    $('#exampleModalcity').modal('show');
+                    /* $('#city').show();*/
+                    $('#citynutton').text("Submit");
+                    /*    $("#city").addClass("fadeInDown");*/
+                  /*  $('#country').hide();*/
+                });
+                $(document).on('click', '#addcountry', function () {
+                    $('#cityidtxt').val("");
+                    $('#airportidtxt').val("");
+                    $('#countryid').val("");
+                    $('#countrytxt').val("");
+                    $('#citytxt').val(" ");
+                    $('#airporttxt').val("");
+                    //$('#airportlist').hide();
+                    //$('#city').hide();
+                    $('#exampleModalLongcountry').modal('show');
+                   /* $('#country').show();*/
+                    $('#countrynutton').text("Submit");
+                   /* $("#country").addClass("in-down");*/
+                });
+                $(document).on('click', '#closepurposal', function () {
+                    $('#cityidtxt').val("");
+                    $('#airportidtxt').val("");
+                    $('#weighttidtxt').val("");
+                    $('#countryid').val("");
+                    $('#countrytxt').val("");
+                    $('#citytxt').val("");
+                    $('#airporttxt').val("");
+                    $('#weighttxt').val("");
+                    //$('#airportlist').hide();
+                    //$('#city').hide();
+                    //$('#country').hide();
+                    //$('#weightlist').hide();
+                });
+
+                function delweight(count, status) {
+
+                    var id = count;
+
+
+                    $.ajax
+                        (
+                            {
+                                type: "GET",
+                                url: "/admin/delweight",
+                                contentType: "Application/json;charset=utf-8",
+                                data: { departid: id, statuss: status },
+                                success: function (response) {
+                                    console.log("result", response);
+                                    displaydelsweet(status);
+                                    setTimeout(function () {
+                                        location.reload(true);
+
+                                    }, 1000);
+
+                                    /*      setTimeout(displaysweet, 1000);*/
+
+
+
+
+
+
+                                },
+
+
+                            }
+                        );
+
+
+                }
+                function delairport(count, status) {
+
+                    var id = count;
+
+
+                    $.ajax
+                        (
+                            {
+                                type: "GET",
+                                url: "/admin/delairport",
+                                contentType: "Application/json;charset=utf-8",
+                                data: { departid: id, statuss: status },
+                                success: function (response) {
+                                    console.log("result", response);
+                                    displaydelsweet(status);
+                                    setTimeout(function () {
+                                        location.reload(true);
+
+                                    }, 1000);
+
+                                    /*      setTimeout(displaysweet, 1000);*/
+
+
+
+
+
+
+                                },
+
+
+                            }
+                        );
+
+
+                }
+                function delcountry(count, status) {
+
+                    var id = count;
+
+
+                    $.ajax
+                        (
+                            {
+                                type: "GET",
+                                url: "/admin/delcountry",
+                                contentType: "Application/json;charset=utf-8",
+                                data: { departid: id, statuss: status },
+                                success: function (response) {
+                                    console.log("result", response);
+                                    displaydelsweet(status);
+                                    setTimeout(function () {
+                                        location.reload(true);
+
+                                    }, 1000);
+
+                                    /*      setTimeout(displaysweet, 1000);*/
+
+
+
+
+
+
+                                },
+
+
+                            }
+                        );
+
+
+                }
+                function delreason(count, status) {
+
+                    var id = count;
+
+
+                    $.ajax
+                        (
+                            {
+                                type: "GET",
+                                url: "/admin/delreason",
+                                contentType: "Application/json;charset=utf-8",
+                                data: { departid: id, statuss: status },
+                                success: function (response) {
+
+                                    displaydelsweet(status);
+                                    setTimeout(function () {
+                                        location.reload(true);
+
+                                    }, 1000);
+
+                                    /*      setTimeout(displaysweet, 1000);*/
+
+
+
+
+
+
+                                },
+
+
+                            }
+                        );
+
+
+                }
+                function delcity(count, status) {
+
+                    var id = count;
+
+
+                    $.ajax
+                        (
+                            {
+                                type: "GET",
+                                url: "/admin/delcity",
+                                contentType: "Application/json;charset=utf-8",
+                                data: { departid: id, statuss: status },
+                                success: function (response) {
+
+                                    displaydelsweet(status);
+                                    setTimeout(function () {
+                                        location.reload(true);
+
+                                    }, 1000);
+
+                                    /*      setTimeout(displaysweet, 1000);*/
+
+
+
+
+
+
+                                },
+
+
+                            }
+                        );
+
+
+                }
+                function delaccount(count, status) {
+
+                    var id = count;
+
+
+                    $.ajax
+                        (
+                            {
+                                type: "GET",
+                                url: "/admin/delaccount",
+                                contentType: "Application/json;charset=utf-8",
+                                data: { departid: id, statuss: status },
+                                success: function (response) {
+                                    console.log("result", response);
+                                    displaydelsweet(status);
+                                    setTimeout(function () {
+                                        location.reload(true);
+
+                                    }, 1000);
+
+                                    /*      setTimeout(displaysweet, 1000);*/
+
+
+
+
+
+
+                                },
+
+
+                            }
+                        );
+
+
+                }
+                function submitapproval(count, status) {
+
+                    var id = count;
+                    $('.country').hide();
+                    $('#btnaddflight').hide();
+
+                    $.ajax
+                        (
+                            {
+                                type: "GET",
+                                url: "/admin/approveflight",
+                                contentType: "Application/json;charset=utf-8",
+                                data: { departid: id, statuss: status },
+                                success: function (response) {
+                                    console.log("result", response);
+                                    displaysweet();
+                                    setTimeout(function () {
+                                        location.reload(true);
+
+                                    }, 1000);
+
+                                    /*      setTimeout(displaysweet, 1000);*/
+
+
+
+
+
+
+                                },
+
+
+                            }
+                        );
+                    $("#purposalform").addClass("in-down");
+                    $('#purposalform').show();
+
+                }
+                function submitblacklist(count) {
+
+                    var id = count;
+                    $('.flightdetail').hide();
+                    $('#btnaddflight').hide();
+
+                    $.ajax
+                        (
+                            {
+                                type: "GET",
+                                url: "/admin/blacklistflight",
+                                contentType: "Application/json;charset=utf-8",
+                                data: { departid: id },
+                                success: function (response) {
+                                    console.log("result", response);
+                                    blackdisplaysweet();
+                                    setTimeout(function () {
+                                        location.reload(true);
+
+                                    }, 1000);
+
+                                    /*      setTimeout(displaysweet, 1000);*/
+
+
+
+
+
+
+                                },
+
+
+                            }
+                        );
+                    $("#purposalform").addClass("in-down");
+                    $('#purposalform').show();
+
+                }
+                function displaydelsweet(statuss) {
+                    var upstatus = "test";
+                    if (statuss = "deactivate") {
+                        upstatus = "Activated";
+                    }
+                    if (statuss = "activate") {
+                        upstatus = "Deactivated";
+                    }
+                    var icon = "success";
+                    if (status == "success") {
+                        icon = "success";
+                    }
+
+
+                    var config = {}
+                    config.icon = icon;
+                    config.title = "Success";
+
+                    config.text = "" + upstatus + " SuccessFully";
+
+                    Swal.fire(config);
+
+                }
+                function displaysweet() {
+                    var icon = "success";
+                    if (status == "success") {
+                        icon = "success";
+                    }
+
+                    var config = {}
+                    config.icon = icon;
+                    config.title = "Success";
+                    config.text = "Flight Approved SuccessFully";
+
+                    Swal.fire(config);
+
+                }
+                function blackdisplaysweet() {
+                    var icon = "success";
+                    if (status == "success") {
+                        icon = "success";
+                    }
+
+                    var config = {}
+                    config.icon = icon;
+                    config.title = "Success";
+                    config.text = "Flight BlackListed SuccessFully";
+
+                    Swal.fire(config);
+
+                }
+                function sumitsweet() {
+                    var icon = "success";
+                    if (status == "success") {
+                        icon = "success";
+                    }
+
+                    var config = {}
+                    config.icon = icon;
+                    config.title = "Success";
+                    config.text = "Data save SuccessFully";
+
+                    Swal.fire(config);
+
+                }
+
+
+            </script>
+
+            <script>
+    function addairport() {
+
+
+
+        var formData = {};
+        var formData = $("#airportForm").serialize();
+
+
+
+        $.ajax(
+            {
+                type: "POST",
+                url: '/admin/submitairportlist',
+                        @* url: '@Url.Action("AddToCart", "Cart", new{@area= "Cart" })',*@
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+            data: formData,
+                success: function (result) {
+                    sumitsweet();
+                    setTimeout(function () {
+                        location.reload(true);
+
+                    }, 1000);
+                    console.log(result);
+                },
+        error: function () {
+            alert('Failed to receive the Data');
+            console.log('Failed ');
+        }
+    });
+
+    }
+    function addcity() {
+
+
+
+        var formData = {};
+        var formData = $("#cityForm").serialize();
+
+
+
+        $.ajax(
+            {
+                type: "POST",
+                url: '/admin/submitcitylist',
+                        @* url: '@Url.Action("AddToCart", "Cart", new{@area= "Cart" })',*@
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+            data: formData,
+                success: function (result) {
+                    sumitsweet();
+                    setTimeout(function () {
+                        location.reload(true);
+
+                    }, 1000);
+                    console.log(result);
+                },
+        error: function () {
+            alert('Failed to receive the Data');
+            console.log('Failed ');
+        }
+    });
+
+    }
+    function addaccount() {
+
+
+
+        var formData = {};
+        var formData = $("#accountForm").serialize();
+
+
+
+        $.ajax(
+            {
+                type: "POST",
+                url: '/admin/submitaccountlist',
+                        @* url: '@Url.Action("AddToCart", "Cart", new{@area= "Cart" })',*@
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+            data: formData,
+                success: function (result) {
+                    sumitsweet();
+                    setTimeout(function () {
+                        location.reload(true);
+
+                    }, 1000);
+                    console.log(result);
+                },
+        error: function () {
+            alert('Failed to receive the Data');
+            console.log('Failed ');
+        }
+    });
+
+    }
+    function editaccount(count, account,limit) {
+        var id = count;
+
+        var accounts = account;
+        $('#accounttxt').val(accounts);
+        $('#accountidtxt').val(id);
+        $('#accountlimittxt').val(limit);
+
+        $('#accountnutton').text("Update");
+   /*     $('#airportlist').hide();*/
+        //$('#city').hide();
+        //$('#country').hide();
+        //$('#reasonlist').hide();
+        $('#accountlist').show();
+        $('#exampleModalLongaccountlist').modal('show');
+    
+       /* $("#accountlist").addClass("in-down");*/
+    }
+    function addreason() {
+
+
+
+        var formData = {};
+        var formData = $("#reasonForm").serialize();
+
+
+
+        $.ajax(
+            {
+                type: "POST",
+                url: '/admin/submitreasonlist',
+                        @* url: '@Url.Action("AddToCart", "Cart", new{@area= "Cart" })',*@
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+            data: formData,
+                success: function (result) {
+                    sumitsweet();
+                    setTimeout(function () {
+                        location.reload(true);
+
+                    }, 1000);
+                    console.log(result);
+                },
+        error: function () {
+            alert('Failed to receive the Data');
+            console.log('Failed ');
+        }
+    });
+
+    }
+    function addweight() {
+
+
+
+        var formData = {};
+        var formData = $("#weightForm").serialize();
+
+
+
+        $.ajax(
+            {
+                type: "POST",
+                url: '/admin/submitweightlist',
+                        @* url: '@Url.Action("AddToCart", "Cart", new{@area= "Cart" })',*@
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+            data: formData,
+                success: function (result) {
+                    sumitsweet();
+                    setTimeout(function () {
+                        location.reload(true);
+
+                    }, 1000);
+                    console.log(result);
+                },
+        error: function () {
+            alert('Failed to receive the Data');
+            console.log('Failed ');
+        }
+    });
+
+    }
+    function editweight(count, weight) {
+        var id = count;
+
+        var weights = weight;
+        $('#weighttxt').val(weights);
+        $('#weightidtxt').val(id);
+
+        $('#weightnutton').text("Update");
+        /*$('#airportlist').hide();*/
+        //$('#city').hide();
+        //$('#country').hide();
+        //$('#reasonlist').hide();
+        $('#weightlist').show();
+        $('#exampleModalLongweightlist').modal('show');
+        
+    }
+    function editreason(count, reason) {
+        var id = count;
+
+        var reasonss = reason;
+        $('#reasontxt').val(reasonss);
+        $('#reasonidtxt').val(id);
+
+        $('#reasonnutton').text("Update");
+        //$('#airportlist').hide();
+        //$('#city').hide();
+        //$('#country').hide();
+        $('#reasonlist').show();
+        $('#exampleModalLongreason').modal('show');
+     /*   $("#reasonlist").addClass("in-down");*/
+    }
+
+    function addcountry() {
+
+
+
+        var formData = {};
+        var formData = $("#countryForm").serialize();
+
+
+
+        $.ajax(
+            {
+                type: "POST",
+                url: '/admin/submitcountrylist',
+                        @* url: '@Url.Action("AddToCart", "Cart", new{@area= "Cart" })',*@
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+            data: formData,
+                success: function (result) {
+                    sumitsweet();
+                    setTimeout(function () {
+                        location.reload(true);
+
+                    }, 1000);
+                    console.log(result);
+                },
+        error: function () {
+            alert('Failed to receive the Data');
+            console.log('Failed ');
+        }
+    });
+
+    }
+    function editcountry(count,country) {
+        var id = count;
+        var countryy = country;
+        $('#countrytxt').val(countryy);
+        $('#countryid').val(id);
+        $('#countrynutton').text("Update");
+        $('#airportlist').hide();
+        $('#city').hide();
+        $('#exampleModalLongcountry').modal('show');
+      /*  $("#country").addClass("in-down");*/
+    }
+
+    function editcity(count,country) {
+        var id = count;
+        var countryy = country;
+        $('#citytxt').val(countryy);
+        $('#cityidtxt').val(id);
+        $('#citynutton').text("Update");
+   /*     $('#airportlist').hide();*/
+        $('#exampleModalcity').modal('show');
+       /* $("#city").addClass("fadeInDown");*/
+        $('#country').hide();
+    }
+
+    function editairport(count, country) {
+        var id = count;
+        var countryy = country;
+        $('#airporttxt').val(countryy);
+        $('#airportidtxt').val(id);
+        $('#airportnutton').text("Update");
+        $('#exampleModalLong').modal('show');
+     /*   $("#airportlist").addClass("in-down");*/
+        //$('#city').hide();
+        //$('#country').hide();
+    }
+    function GetEmployeeUsingAjax() {
+
+        $.ajax({
+            type: 'GET',
+            url: '/admin/getdata',
+
+            dataType: 'json',
+            success: function (data) {
+                $.each(data, function (i, item) {
+                    var rows = "<tr>"
+                        + "<td>" + item.accounttitle + "</td>"
+                        + "<td>" + item.accountlimits + "</td>"
+
+
+                    + "</tr>";
+                    $('#tblProducts tbody').append(rows);
+                });
+            },
+            error: function (emp) {
+                alert('error');
+            }
+        });
+    }
+            </script>
+
+            @*<script type="text/javascript">
+                        $(document).on('click', '#btnadd', function () {
+                            //var txtid = $('#txtid');
+                            //var client = $('#client');
+
+                            //var jamount = $('#jamount');
+
+                            //var namount = $('#namount');
+                            //var ramount = $('#ramount');
+                            //var product = $('#product');
+
+                            //txtid.val(null);
+                            //client.val(null);
+
+                            //product.val(null);
+                            //jamount.val(null);
+                            //namount.val(null);
+                            //ramount.val(null);
+
+                            $('#myModal').modal('show');
+                        }
+                        );
+                </script>*@
+
+
